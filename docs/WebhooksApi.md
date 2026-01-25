@@ -177,7 +177,7 @@ public class Example {
     bearer.setBearerToken("BEARER TOKEN");
 
     WebhooksApi apiInstance = new WebhooksApi(defaultClient);
-    String merchantId = "merchantId_example"; // String | The ID of the merchant. This parameter is required.
+    String merchantId = "merchantId_example"; // String | The ID of the merchant whose webhooks are being requested. If omitted, defaults to the authenticated merchant.
     BigDecimal limit = new BigDecimal(78); // BigDecimal | Maximum number of records to return
     BigDecimal offset = new BigDecimal(78); // BigDecimal | Number of records to skip
     try {
@@ -198,7 +198,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **merchantId** | **String**| The ID of the merchant. This parameter is required. | |
+| **merchantId** | **String**| The ID of the merchant whose webhooks are being requested. If omitted, defaults to the authenticated merchant. | [optional] |
 | **limit** | **BigDecimal**| Maximum number of records to return | [optional] |
 | **offset** | **BigDecimal**| Number of records to skip | [optional] |
 

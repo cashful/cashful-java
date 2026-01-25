@@ -91,6 +91,8 @@ docs/GetActiveMemberRoleResponseDto.md
 docs/GetApiKeyResponseDto.md
 docs/GetFullOrganizationResponseDto.md
 docs/GetInvitationResponseDto.md
+docs/GetJsonWebKeySetResponseDto.md
+docs/GetJsonWebTokenResponseDto.md
 docs/GetSessionResponseDto.md
 docs/HasPermissionDto.md
 docs/HasPermissionResponseDto.md
@@ -106,6 +108,7 @@ docs/InviteMemberResponseDto.md
 docs/IsUsernameAvailableDto.md
 docs/IsUsernameAvailableResponseDto.md
 docs/IveriParamsDto.md
+docs/JwkDto.md
 docs/LeaveOrganizationDto.md
 docs/LeaveOrganizationResponseDto.md
 docs/LineItemDto.md
@@ -122,11 +125,13 @@ docs/ListFilesResponseDto.md
 docs/ListInvitationsResponseDto.md
 docs/ListMembersResponseDto.md
 docs/ListOrganizationComplianceResponseDto.md
+docs/ListPaymentIntentsResponseDto.md
 docs/ListPaymentLinksResponseDto.md
 docs/ListPaymentMethodsResponseDto.md
 docs/ListPayoutsResponseDto.md
 docs/ListProductsResponseDto.md
 docs/ListSessionsResponseDto.md
+docs/ListTransfersResponseDto.md
 docs/ListUserInvitationsResponseDto.md
 docs/ListUsersResponseDto.md
 docs/ListWebhookEndpointsResponseDto.md
@@ -346,6 +351,8 @@ src/main/java/com/cashful/model/GetActiveMemberRoleResponseDto.java
 src/main/java/com/cashful/model/GetApiKeyResponseDto.java
 src/main/java/com/cashful/model/GetFullOrganizationResponseDto.java
 src/main/java/com/cashful/model/GetInvitationResponseDto.java
+src/main/java/com/cashful/model/GetJsonWebKeySetResponseDto.java
+src/main/java/com/cashful/model/GetJsonWebTokenResponseDto.java
 src/main/java/com/cashful/model/GetSessionResponseDto.java
 src/main/java/com/cashful/model/HasPermissionDto.java
 src/main/java/com/cashful/model/HasPermissionResponseDto.java
@@ -360,6 +367,7 @@ src/main/java/com/cashful/model/InviteMemberResponseDto.java
 src/main/java/com/cashful/model/IsUsernameAvailableDto.java
 src/main/java/com/cashful/model/IsUsernameAvailableResponseDto.java
 src/main/java/com/cashful/model/IveriParamsDto.java
+src/main/java/com/cashful/model/JwkDto.java
 src/main/java/com/cashful/model/LeaveOrganizationDto.java
 src/main/java/com/cashful/model/LeaveOrganizationResponseDto.java
 src/main/java/com/cashful/model/LineItemDto.java
@@ -376,11 +384,13 @@ src/main/java/com/cashful/model/ListFilesResponseDto.java
 src/main/java/com/cashful/model/ListInvitationsResponseDto.java
 src/main/java/com/cashful/model/ListMembersResponseDto.java
 src/main/java/com/cashful/model/ListOrganizationComplianceResponseDto.java
+src/main/java/com/cashful/model/ListPaymentIntentsResponseDto.java
 src/main/java/com/cashful/model/ListPaymentLinksResponseDto.java
 src/main/java/com/cashful/model/ListPaymentMethodsResponseDto.java
 src/main/java/com/cashful/model/ListPayoutsResponseDto.java
 src/main/java/com/cashful/model/ListProductsResponseDto.java
 src/main/java/com/cashful/model/ListSessionsResponseDto.java
+src/main/java/com/cashful/model/ListTransfersResponseDto.java
 src/main/java/com/cashful/model/ListUserInvitationsResponseDto.java
 src/main/java/com/cashful/model/ListUsersResponseDto.java
 src/main/java/com/cashful/model/ListWebhookEndpointsResponseDto.java
@@ -563,6 +573,8 @@ src/test/java/com/cashful/model/GetActiveMemberRoleResponseDtoTest.java
 src/test/java/com/cashful/model/GetApiKeyResponseDtoTest.java
 src/test/java/com/cashful/model/GetFullOrganizationResponseDtoTest.java
 src/test/java/com/cashful/model/GetInvitationResponseDtoTest.java
+src/test/java/com/cashful/model/GetJsonWebKeySetResponseDtoTest.java
+src/test/java/com/cashful/model/GetJsonWebTokenResponseDtoTest.java
 src/test/java/com/cashful/model/GetSessionResponseDtoTest.java
 src/test/java/com/cashful/model/HasPermissionDtoTest.java
 src/test/java/com/cashful/model/HasPermissionResponseDtoTest.java
@@ -577,6 +589,7 @@ src/test/java/com/cashful/model/InviteMemberResponseDtoTest.java
 src/test/java/com/cashful/model/IsUsernameAvailableDtoTest.java
 src/test/java/com/cashful/model/IsUsernameAvailableResponseDtoTest.java
 src/test/java/com/cashful/model/IveriParamsDtoTest.java
+src/test/java/com/cashful/model/JwkDtoTest.java
 src/test/java/com/cashful/model/LeaveOrganizationDtoTest.java
 src/test/java/com/cashful/model/LeaveOrganizationResponseDtoTest.java
 src/test/java/com/cashful/model/LineItemDtoTest.java
@@ -593,11 +606,13 @@ src/test/java/com/cashful/model/ListFilesResponseDtoTest.java
 src/test/java/com/cashful/model/ListInvitationsResponseDtoTest.java
 src/test/java/com/cashful/model/ListMembersResponseDtoTest.java
 src/test/java/com/cashful/model/ListOrganizationComplianceResponseDtoTest.java
+src/test/java/com/cashful/model/ListPaymentIntentsResponseDtoTest.java
 src/test/java/com/cashful/model/ListPaymentLinksResponseDtoTest.java
 src/test/java/com/cashful/model/ListPaymentMethodsResponseDtoTest.java
 src/test/java/com/cashful/model/ListPayoutsResponseDtoTest.java
 src/test/java/com/cashful/model/ListProductsResponseDtoTest.java
 src/test/java/com/cashful/model/ListSessionsResponseDtoTest.java
+src/test/java/com/cashful/model/ListTransfersResponseDtoTest.java
 src/test/java/com/cashful/model/ListUserInvitationsResponseDtoTest.java
 src/test/java/com/cashful/model/ListUsersResponseDtoTest.java
 src/test/java/com/cashful/model/ListWebhookEndpointsResponseDtoTest.java

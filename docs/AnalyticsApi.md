@@ -36,7 +36,7 @@ public class Example {
     bearer.setBearerToken("BEARER TOKEN");
 
     AnalyticsApi apiInstance = new AnalyticsApi(defaultClient);
-    String merchantId = "merchant_123"; // String | The unique identifier of the merchant
+    String merchantId = "merchant_123"; // String | The unique identifier of the merchant. If not provided, defaults to the authenticated user's active organization.
     try {
       AnalyticsResponseDto result = apiInstance.getAnalytics(merchantId);
       System.out.println(result);
@@ -55,7 +55,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **merchantId** | **String**| The unique identifier of the merchant | |
+| **merchantId** | **String**| The unique identifier of the merchant. If not provided, defaults to the authenticated user&#39;s active organization. | [optional] |
 
 ### Return type
 
@@ -106,7 +106,7 @@ public class Example {
     bearer.setBearerToken("BEARER TOKEN");
 
     AnalyticsApi apiInstance = new AnalyticsApi(defaultClient);
-    String merchantId = "merchant_123"; // String | The unique identifier of the merchant
+    String merchantId = "merchant_123"; // String | The unique identifier of the merchant. If not provided, defaults to the authenticated user's active organization.
     try {
       AnalyticsSummaryDto result = apiInstance.getAnalyticsSummary(merchantId);
       System.out.println(result);
@@ -125,7 +125,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **merchantId** | **String**| The unique identifier of the merchant | |
+| **merchantId** | **String**| The unique identifier of the merchant. If not provided, defaults to the authenticated user&#39;s active organization. | [optional] |
 
 ### Return type
 

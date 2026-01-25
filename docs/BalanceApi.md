@@ -36,7 +36,7 @@ public class Example {
     bearer.setBearerToken("BEARER TOKEN");
 
     BalanceApi apiInstance = new BalanceApi(defaultClient);
-    String merchantId = "merchantId_example"; // String | The ID of the merchant. This parameter is required.
+    String merchantId = "merchantId_example"; // String | The ID of the merchant whose balance is being requested. If omitted, defaults to the authenticated merchant.
     BigDecimal limit = new BigDecimal(78); // BigDecimal | Maximum number of records to return
     BigDecimal offset = new BigDecimal(78); // BigDecimal | Number of records to skip
     String startDate = "startDate_example"; // String | Filter transactions from this date (ISO 8601 format)
@@ -60,7 +60,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **merchantId** | **String**| The ID of the merchant. This parameter is required. | |
+| **merchantId** | **String**| The ID of the merchant whose balance is being requested. If omitted, defaults to the authenticated merchant. | [optional] |
 | **limit** | **BigDecimal**| Maximum number of records to return | [optional] |
 | **offset** | **BigDecimal**| Number of records to skip | [optional] |
 | **startDate** | **String**| Filter transactions from this date (ISO 8601 format) | [optional] |
@@ -117,7 +117,7 @@ public class Example {
     bearer.setBearerToken("BEARER TOKEN");
 
     BalanceApi apiInstance = new BalanceApi(defaultClient);
-    String merchantId = "merchantId_example"; // String | The ID of the merchant whose balance is being requested.
+    String merchantId = "merchantId_example"; // String | The ID of the merchant whose balance is being requested. If omitted, defaults to the authenticated merchant.
     try {
       MerchantBalanceResponseDto result = apiInstance.getMerchantBalance(merchantId);
       System.out.println(result);
@@ -136,7 +136,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **merchantId** | **String**| The ID of the merchant whose balance is being requested. | |
+| **merchantId** | **String**| The ID of the merchant whose balance is being requested. If omitted, defaults to the authenticated merchant. | [optional] |
 
 ### Return type
 

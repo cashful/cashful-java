@@ -13,6 +13,7 @@
 |**amount** | **BigDecimal** | The price of the product in the smallest currency unit |  [optional] |
 |**currency** | **String** | The three-letter ISO 4217 currency code |  |
 |**active** | **Boolean** | Whether the product is active |  [optional] |
+|**imageId** | **String** | The ID of the product image file |  [optional] |
 |**metadata** | **Map&lt;String, Object&gt;** | Optional custom metadata |  |
 
 

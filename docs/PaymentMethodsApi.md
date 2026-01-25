@@ -81,7 +81,7 @@ public class Example {
 
 <a id="listPaymentMethods"></a>
 # **listPaymentMethods**
-> ListPaymentMethodsResponseDto listPaymentMethods(merchantId, limit, offset, customerId)
+> ListPaymentMethodsResponseDto listPaymentMethods(limit, offset, merchantId, customerId)
 
 List Payment Methods
 
@@ -107,12 +107,12 @@ public class Example {
     bearer.setBearerToken("BEARER TOKEN");
 
     PaymentMethodsApi apiInstance = new PaymentMethodsApi(defaultClient);
-    String merchantId = "merchantId_example"; // String | The unique identifier of the merchant
     BigDecimal limit = new BigDecimal("50"); // BigDecimal | Maximum number of records to return
     BigDecimal offset = new BigDecimal("0"); // BigDecimal | Number of records to skip
+    String merchantId = "merchantId_example"; // String | The unique identifier of the merchant. If not provided, defaults to the authenticated user's active organization.
     String customerId = "customerId_example"; // String | The unique identifier of the customer
     try {
-      ListPaymentMethodsResponseDto result = apiInstance.listPaymentMethods(merchantId, limit, offset, customerId);
+      ListPaymentMethodsResponseDto result = apiInstance.listPaymentMethods(limit, offset, merchantId, customerId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling PaymentMethodsApi#listPaymentMethods");
@@ -129,9 +129,9 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **merchantId** | **String**| The unique identifier of the merchant | |
 | **limit** | **BigDecimal**| Maximum number of records to return | [optional] |
 | **offset** | **BigDecimal**| Number of records to skip | [optional] |
+| **merchantId** | **String**| The unique identifier of the merchant. If not provided, defaults to the authenticated user&#39;s active organization. | [optional] |
 | **customerId** | **String**| The unique identifier of the customer | [optional] |
 
 ### Return type

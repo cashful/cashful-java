@@ -107,7 +107,7 @@ public class Example {
     bearer.setBearerToken("BEARER TOKEN");
 
     PayoutsApi apiInstance = new PayoutsApi(defaultClient);
-    String merchantId = "merchantId_example"; // String | The ID of the merchant. This parameter is required.
+    String merchantId = "merchantId_example"; // String | The ID of the merchant whose payouts are being requested. If omitted, defaults to the authenticated merchant.
     BigDecimal limit = new BigDecimal(78); // BigDecimal | Maximum number of records to return
     BigDecimal offset = new BigDecimal(78); // BigDecimal | Number of records to skip
     String status = "status_example"; // String | Filter by status
@@ -129,7 +129,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **merchantId** | **String**| The ID of the merchant. This parameter is required. | |
+| **merchantId** | **String**| The ID of the merchant whose payouts are being requested. If omitted, defaults to the authenticated merchant. | [optional] |
 | **limit** | **BigDecimal**| Maximum number of records to return | [optional] |
 | **offset** | **BigDecimal**| Number of records to skip | [optional] |
 | **status** | **String**| Filter by status | [optional] |

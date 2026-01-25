@@ -227,7 +227,7 @@ public class Example {
 
 <a id="listPaymentIntents"></a>
 # **listPaymentIntents**
-> listPaymentIntents(merchantId, limit, offset, status)
+> ListPaymentIntentsResponseDto listPaymentIntents(merchantId, limit, offset, status)
 
 List Payment Intents
 
@@ -253,12 +253,13 @@ public class Example {
     bearer.setBearerToken("BEARER TOKEN");
 
     PaymentIntentsApi apiInstance = new PaymentIntentsApi(defaultClient);
-    String merchantId = "merchantId_example"; // String | Filter by merchant ID
+    String merchantId = "merchantId_example"; // String | The ID of the merchant. If omitted, defaults to the authenticated merchant.
     BigDecimal limit = new BigDecimal("50"); // BigDecimal | Maximum number of records to return
     BigDecimal offset = new BigDecimal("0"); // BigDecimal | Number of records to skip
     String status = "initiation"; // String | Filter by status
     try {
-      apiInstance.listPaymentIntents(merchantId, limit, offset, status);
+      ListPaymentIntentsResponseDto result = apiInstance.listPaymentIntents(merchantId, limit, offset, status);
+      System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling PaymentIntentsApi#listPaymentIntents");
       System.err.println("Status code: " + e.getCode());
@@ -274,14 +275,14 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **merchantId** | **String**| Filter by merchant ID | |
+| **merchantId** | **String**| The ID of the merchant. If omitted, defaults to the authenticated merchant. | [optional] |
 | **limit** | **BigDecimal**| Maximum number of records to return | [optional] [default to 50] |
 | **offset** | **BigDecimal**| Number of records to skip | [optional] [default to 0] |
 | **status** | **String**| Filter by status | [optional] [enum: initiation, requires_payment_method, requires_confirmation, requires_action, processing, requires_capture, succeeded, failed, canceled] |
 
 ### Return type
 
-null (empty response body)
+[**ListPaymentIntentsResponseDto**](ListPaymentIntentsResponseDto.md)
 
 ### Authorization
 

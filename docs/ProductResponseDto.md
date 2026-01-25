@@ -17,6 +17,8 @@
 |**amount** | **BigDecimal** |  |  [optional] |
 |**currency** | **String** |  |  |
 |**active** | **Boolean** |  |  |
+|**imageId** | **String** | The ID of the product image file |  [optional] |
+|**imageUrl** | **String** | The public URL of the product image |  [optional] |
 |**metadata** | **Map&lt;String, Object&gt;** |  |  |
 
 

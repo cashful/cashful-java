@@ -220,7 +220,7 @@ public class Example {
 
 <a id="storageControllerListCanary"></a>
 # **storageControllerListCanary**
-> ListFilesResponseDto storageControllerListCanary(merchantId, limit, offset, tag, status, relatedEntityId, relatedEntityType)
+> ListFilesResponseDto storageControllerListCanary(limit, offset, tag, status, relatedEntityId, relatedEntityType)
 
 List files
 
@@ -244,7 +244,6 @@ public class Example {
     bearer.setBearerToken("BEARER TOKEN");
 
     StorageApi apiInstance = new StorageApi(defaultClient);
-    String merchantId = "merchantId_example"; // String | The ID of the merchant. This parameter is required.
     BigDecimal limit = new BigDecimal("50"); // BigDecimal | Maximum number of records to return
     BigDecimal offset = new BigDecimal("0"); // BigDecimal | Number of records to skip
     String tag = "tag_example"; // String | Filter by tag
@@ -252,7 +251,7 @@ public class Example {
     String relatedEntityId = "relatedEntityId_example"; // String | 
     String relatedEntityType = "relatedEntityType_example"; // String | 
     try {
-      ListFilesResponseDto result = apiInstance.storageControllerListCanary(merchantId, limit, offset, tag, status, relatedEntityId, relatedEntityType);
+      ListFilesResponseDto result = apiInstance.storageControllerListCanary(limit, offset, tag, status, relatedEntityId, relatedEntityType);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling StorageApi#storageControllerListCanary");
@@ -269,7 +268,6 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **merchantId** | **String**| The ID of the merchant. This parameter is required. | |
 | **limit** | **BigDecimal**| Maximum number of records to return | [optional] |
 | **offset** | **BigDecimal**| Number of records to skip | [optional] |
 | **tag** | **String**| Filter by tag | [optional] |

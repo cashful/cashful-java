@@ -20,6 +20,8 @@ All URIs are relative to *https://api.cashful.africa*
 | [**getActiveMemberRole**](AuthenticationApi.md#getActiveMemberRole) | **GET** /api/canary/authentication/organization/get-active-member-role | Get Active Member Role |
 | [**getApiKey**](AuthenticationApi.md#getApiKey) | **GET** /api/canary/authentication/api-key/get | Get API Key |
 | [**getInvitation**](AuthenticationApi.md#getInvitation) | **GET** /api/canary/authentication/organization/get-invitation | Get Invitation |
+| [**getJSONWebKeySet**](AuthenticationApi.md#getJSONWebKeySet) | **GET** /api/canary/authentication/jwks | Get the JSON Web Key Set |
+| [**getJSONWebToken**](AuthenticationApi.md#getJSONWebToken) | **GET** /api/canary/authentication/token | Get a JWT token |
 | [**getOrganization**](AuthenticationApi.md#getOrganization) | **GET** /api/canary/authentication/organization/get-full-organization | Get Full Organization |
 | [**getSession**](AuthenticationApi.md#getSession) | **GET** /api/canary/authentication/get-session | Get Session |
 | [**hasPermission**](AuthenticationApi.md#hasPermission) | **POST** /api/canary/authentication/organization/has-permission | Has Permission |
@@ -1172,6 +1174,136 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Invitation retrieved successfully |  -  |
+| **401** | Unauthorized |  -  |
+| **500** | Internal server error |  -  |
+
+<a id="getJSONWebKeySet"></a>
+# **getJSONWebKeySet**
+> GetJsonWebKeySetResponseDto getJSONWebKeySet()
+
+Get the JSON Web Key Set
+
+Get the JSON Web Key Set
+
+### Example
+```java
+// Import classes:
+import com.cashful.ApiClient;
+import com.cashful.ApiException;
+import com.cashful.Configuration;
+import com.cashful.auth.*;
+import com.cashful.models.*;
+import com.cashful.api.AuthenticationApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.cashful.africa");
+    
+    // Configure HTTP bearer authorization: bearer
+    HttpBearerAuth bearer = (HttpBearerAuth) defaultClient.getAuthentication("bearer");
+    bearer.setBearerToken("BEARER TOKEN");
+
+    AuthenticationApi apiInstance = new AuthenticationApi(defaultClient);
+    try {
+      GetJsonWebKeySetResponseDto result = apiInstance.getJSONWebKeySet();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling AuthenticationApi#getJSONWebKeySet");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**GetJsonWebKeySetResponseDto**](GetJsonWebKeySetResponseDto.md)
+
+### Authorization
+
+[bearer](../README.md#bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | JSON Web Key Set retrieved successfully |  -  |
+| **401** | Unauthorized |  -  |
+| **500** | Internal server error |  -  |
+
+<a id="getJSONWebToken"></a>
+# **getJSONWebToken**
+> GetJsonWebTokenResponseDto getJSONWebToken()
+
+Get a JWT token
+
+Get a JWT token
+
+### Example
+```java
+// Import classes:
+import com.cashful.ApiClient;
+import com.cashful.ApiException;
+import com.cashful.Configuration;
+import com.cashful.auth.*;
+import com.cashful.models.*;
+import com.cashful.api.AuthenticationApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.cashful.africa");
+    
+    // Configure HTTP bearer authorization: bearer
+    HttpBearerAuth bearer = (HttpBearerAuth) defaultClient.getAuthentication("bearer");
+    bearer.setBearerToken("BEARER TOKEN");
+
+    AuthenticationApi apiInstance = new AuthenticationApi(defaultClient);
+    try {
+      GetJsonWebTokenResponseDto result = apiInstance.getJSONWebToken();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling AuthenticationApi#getJSONWebToken");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**GetJsonWebTokenResponseDto**](GetJsonWebTokenResponseDto.md)
+
+### Authorization
+
+[bearer](../README.md#bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
 | **401** | Unauthorized |  -  |
 | **500** | Internal server error |  -  |
 

@@ -107,7 +107,7 @@ public class Example {
     bearer.setBearerToken("BEARER TOKEN");
 
     CheckoutsApi apiInstance = new CheckoutsApi(defaultClient);
-    String merchantId = "merchantId_example"; // String | The ID of the merchant. This parameter is required.
+    String merchantId = "merchantId_example"; // String | The ID of the merchant to filter checkout sessions
     BigDecimal limit = new BigDecimal("50"); // BigDecimal | Maximum number of records to return
     BigDecimal offset = new BigDecimal("0"); // BigDecimal | Number of records to skip
     String status = "status_example"; // String | The status to filter checkout sessions
@@ -129,7 +129,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **merchantId** | **String**| The ID of the merchant. This parameter is required. | |
+| **merchantId** | **String**| The ID of the merchant to filter checkout sessions | |
 | **limit** | **BigDecimal**| Maximum number of records to return | [optional] |
 | **offset** | **BigDecimal**| Number of records to skip | [optional] |
 | **status** | **String**| The status to filter checkout sessions | [optional] |

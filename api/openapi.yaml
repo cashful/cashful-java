@@ -6,13 +6,13 @@ info:
     url: https://cashful.africa
   description: Developer documentation for the Cashful platform.
   title: Cashful API
-  version: 0.6.2
+  version: 0.7.0
 servers:
 - description: Live
   url: https://api.cashful.africa
 - description: Testing
   url: https://sandbox.api.cashful.africa
-- description: Development
+- description: Local
   url: http://localhost:9000
 paths:
   /api/canary/health:
@@ -28,14 +28,10 @@ paths:
                 example:
                   status: ok
                   info:
-                    cashful-api:
-                      status: up
                     database:
                       status: up
                   error: {}
                   details:
-                    cashful-api:
-                      status: up
                     database:
                       status: up
           description: Application and all dependencies are healthy
@@ -228,6 +224,68 @@ paths:
       security:
       - bearer: []
       summary: Get Session
+      tags:
+      - Authentication
+      x-accepts:
+      - application/json
+  /api/canary/authentication/token:
+    get:
+      description: Get a JWT token
+      operationId: getJSONWebToken
+      parameters: []
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GetJsonWebTokenResponseDto"
+          description: Success
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponseDto"
+          description: Unauthorized
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponseDto"
+          description: Internal server error
+      security:
+      - bearer: []
+      summary: Get a JWT token
+      tags:
+      - Authentication
+      x-accepts:
+      - application/json
+  /api/canary/authentication/jwks:
+    get:
+      description: Get the JSON Web Key Set
+      operationId: getJSONWebKeySet
+      parameters: []
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GetJsonWebKeySetResponseDto"
+          description: JSON Web Key Set retrieved successfully
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponseDto"
+          description: Unauthorized
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponseDto"
+          description: Internal server error
+      security:
+      - bearer: []
+      summary: Get the JSON Web Key Set
       tags:
       - Authentication
       x-accepts:
@@ -2419,7 +2477,7 @@ paths:
           example: 0
           type: number
         style: form
-      - description: The ID of the merchant. This parameter is required.
+      - description: The ID of the merchant to filter checkout sessions
         explode: true
         in: query
         name: merchantId
@@ -2653,11 +2711,12 @@ paths:
         for payouts.
       operationId: getMerchantBalance
       parameters:
-      - description: The ID of the merchant whose balance is being requested.
+      - description: "The ID of the merchant whose balance is being requested. If\
+          \ omitted, defaults to the authenticated merchant."
         explode: true
         in: query
         name: merchantId
-        required: true
+        required: false
         schema:
           type: string
         style: form
@@ -2714,11 +2773,12 @@ paths:
         \ master account."
       operationId: getBalanceHistory
       parameters:
-      - description: The ID of the merchant. This parameter is required.
+      - description: "The ID of the merchant whose balance is being requested. If\
+          \ omitted, defaults to the authenticated merchant."
         explode: true
         in: query
         name: merchantId
-        required: true
+        required: false
         schema:
           type: string
         style: form
@@ -2846,11 +2906,12 @@ paths:
       description: Retrieves a paginated list of all customers for the merchant.
       operationId: listCustomers
       parameters:
-      - description: The ID of the merchant. This parameter is required.
+      - description: "The ID of the merchant whose balance is being requested. If\
+          \ omitted, defaults to the authenticated merchant."
         explode: true
         in: query
         name: merchantId
-        required: true
+        required: false
         schema:
           type: string
         style: form
@@ -3355,20 +3416,13 @@ paths:
       description: Retrieves a log of all API events for debugging and logging.
       operationId: listEvents
       parameters:
-      - description: The ID of the merchant. This parameter is required.
-        explode: true
-        in: query
-        name: merchantId
-        required: true
-        schema:
-          type: string
-        style: form
       - description: Maximum number of records to return
         explode: true
         in: query
         name: limit
         required: false
         schema:
+          example: 50
           type: number
         style: form
       - description: Number of records to skip
@@ -3377,7 +3431,17 @@ paths:
         name: offset
         required: false
         schema:
+          example: 0
           type: number
+        style: form
+      - description: The ID of the merchant whose events are being requested. This
+          parameter is required.
+        explode: true
+        in: query
+        name: merchantId
+        required: true
+        schema:
+          type: string
         style: form
       - description: Filter by event type
         explode: true
@@ -3516,11 +3580,12 @@ paths:
         filtering.
       operationId: listPaymentIntents
       parameters:
-      - description: Filter by merchant ID
+      - description: "The ID of the merchant. If omitted, defaults to the authenticated\
+          \ merchant."
         explode: true
         in: query
         name: merchantId
-        required: true
+        required: false
         schema:
           type: string
         style: form
@@ -3603,6 +3668,8 @@ paths:
                   offset: 0
                   total: 2
                   hasMore: false
+              schema:
+                $ref: "#/components/schemas/ListPaymentIntentsResponseDto"
           description: Successfully retrieved payment intents
         "401":
           content:
@@ -3863,11 +3930,12 @@ paths:
       description: Retrieves all payment links created by the merchant.
       operationId: listPaymentLinks
       parameters:
-      - description: The ID of the merchant. This parameter is required.
+      - description: "The ID of the merchant whose payment links are being requested.\
+          \ If omitted, defaults to the authenticated merchant."
         explode: true
         in: query
         name: merchantId
-        required: true
+        required: false
         schema:
           type: string
         style: form
@@ -4273,11 +4341,12 @@ paths:
           example: 0
           type: number
         style: form
-      - description: The unique identifier of the merchant
+      - description: "The unique identifier of the merchant. If not provided, defaults\
+          \ to the authenticated user's active organization."
         explode: true
         in: query
         name: merchantId
-        required: true
+        required: false
         schema:
           type: string
         style: form
@@ -4369,11 +4438,12 @@ paths:
           example: 0
           type: number
         style: form
-      - description: The ID of the merchant. This parameter is required.
+      - description: "The ID of the merchant whose products are being requested. If\
+          \ not provided, the products of the authenticated merchant will be returned."
         explode: true
         in: query
         name: merchantId
-        required: true
+        required: false
         schema:
           type: string
         style: form
@@ -4398,6 +4468,8 @@ paths:
                   amount: 5000
                   currency: ZAR
                   active: true
+                  imageId: file_abc123xyz
+                  imageUrl: https://my-bucket.s3.af-south-1.amazonaws.com/merchant_123/1736951234567-a1b2c3-airtime.png
                   metadata:
                     category: telecom
                   createdAt: 2025-01-15T10:30:00.000Z
@@ -4409,6 +4481,8 @@ paths:
                   amount: 10000
                   currency: ZAR
                   active: true
+                  imageId: file_def456uvw
+                  imageUrl: https://my-bucket.s3.af-south-1.amazonaws.com/merchant_123/1736951234567-x9y8z7-data-bundle.png
                   metadata:
                     category: telecom
                     size: 1GB
@@ -4477,6 +4551,8 @@ paths:
                 amount: 5000
                 currency: ZAR
                 active: true
+                imageId: file_abc123xyz
+                imageUrl: https://my-bucket.s3.af-south-1.amazonaws.com/merchant_123/1736951234567-a1b2c3-airtime.png
                 metadata:
                   category: telecom
                   provider: vodacom
@@ -4536,6 +4612,8 @@ paths:
                 amount: 5000
                 currency: ZAR
                 active: true
+                imageId: file_abc123xyz
+                imageUrl: https://my-bucket.s3.af-south-1.amazonaws.com/merchant_123/1736951234567-a1b2c3-airtime.png
                 metadata:
                   category: telecom
                   provider: vodacom
@@ -4600,6 +4678,8 @@ paths:
                 amount: 5000
                 currency: ZAR
                 active: true
+                imageId: file_abc123xyz
+                imageUrl: https://my-bucket.s3.af-south-1.amazonaws.com/merchant_123/1736951234567-a1b2c3-airtime.png
                 metadata:
                   category: telecom
                   provider: vodacom
@@ -4646,11 +4726,12 @@ paths:
         merchant.
       operationId: listPayouts
       parameters:
-      - description: The ID of the merchant. This parameter is required.
+      - description: "The ID of the merchant whose payouts are being requested. If\
+          \ omitted, defaults to the authenticated merchant."
         explode: true
         in: query
         name: merchantId
-        required: true
+        required: false
         schema:
           type: string
         style: form
@@ -4802,6 +4883,80 @@ paths:
       x-accepts:
       - application/json
   /api/canary/transfers:
+    get:
+      description: Lists transfers for a specific merchant with pagination.
+      operationId: listTransfers
+      parameters:
+      - description: Maximum number of items to return
+        explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          example: 50
+          type: number
+        style: form
+      - description: Number of items to skip
+        explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          example: 0
+          type: number
+        style: form
+      - description: "Filter by merchant ID. If omitted, defaults to the authenticated\
+          \ merchant."
+        explode: true
+        in: query
+        name: merchantId
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              example:
+                data:
+                - id: transfer_001
+                  merchantId: merchant_456
+                  fromCustomerId: customer_123
+                  toCustomerId: customer_789
+                  amount: 1000
+                  currency: ZAR
+                  status: completed
+                  description: Payment for services
+                  createdAt: 2025-01-15T10:30:00.000Z
+                  updatedAt: 2025-01-15T10:30:00.000Z
+                pagination:
+                  limit: 50
+                  offset: 0
+                  total: 1
+                  hasMore: false
+              schema:
+                $ref: "#/components/schemas/ListTransfersResponseDto"
+          description: Successfully retrieved transfers
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponseDto"
+          description: Unauthorized
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponseDto"
+          description: Internal server error
+      security:
+      - bearer: []
+      summary: List Transfers
+      tags:
+      - Transfers
+      x-accepts:
+      - application/json
     post:
       description: (Wallet-Enabling) Moves funds from one CustomerBalance to another
         CustomerBalance. This is the P2P feature.
@@ -4937,11 +5092,12 @@ paths:
       description: Lists all configured webhook endpoints.
       operationId: listWebhookEndpoints
       parameters:
-      - description: The ID of the merchant. This parameter is required.
+      - description: "The ID of the merchant whose webhooks are being requested. If\
+          \ omitted, defaults to the authenticated merchant."
         explode: true
         in: query
         name: merchantId
-        required: true
+        required: false
         schema:
           type: string
         style: form
@@ -5132,11 +5288,12 @@ paths:
         merchant.
       operationId: getAnalytics
       parameters:
-      - description: The unique identifier of the merchant
+      - description: "The unique identifier of the merchant. If not provided, defaults\
+          \ to the authenticated user's active organization."
         explode: true
         in: query
         name: merchantId
-        required: true
+        required: false
         schema:
           example: merchant_123
           type: string
@@ -5224,11 +5381,12 @@ paths:
       description: Retrieves a quick summary of key metrics for the merchant.
       operationId: getAnalyticsSummary
       parameters:
-      - description: The unique identifier of the merchant
+      - description: "The unique identifier of the merchant. If not provided, defaults\
+          \ to the authenticated user's active organization."
         explode: true
         in: query
         name: merchantId
-        required: true
+        required: false
         schema:
           example: merchant_123
           type: string
@@ -5424,7 +5582,7 @@ paths:
           description: Failed to send email
       summary: Send an email notification
       tags:
-      - notifications
+      - Notifications
       x-content-type: application/json
       x-accepts:
       - application/json
@@ -5451,7 +5609,7 @@ paths:
           description: Failed to send SMS
       summary: Send an SMS notification
       tags:
-      - notifications
+      - Notifications
       x-content-type: application/json
       x-accepts:
       - application/json
@@ -5474,7 +5632,7 @@ paths:
           description: Failed to send notification
       summary: Send a notification via specified channel
       tags:
-      - notifications
+      - Notifications
       x-content-type: application/json
       x-accepts:
       - application/json
@@ -5491,7 +5649,7 @@ paths:
           description: Notifications sent
       summary: Send notifications via multiple channels
       tags:
-      - notifications
+      - Notifications
       x-accepts:
       - application/json
   /api/canary/storage/upload-url:
@@ -5505,13 +5663,14 @@ paths:
               default:
                 summary: Upload a compliance document
                 value:
-                  filename: identity-document.pdf
-                  mimeType: application/pdf
+                  filename: iphone-15.png
+                  mimeType: image/png
+                  isPublic: true
                   tags:
-                  - compliance
-                  - identity-document
-                  relatedEntityId: compliance_info_123
-                  relatedEntityType: complianceInfo
+                  - product
+                  - image
+                  relatedEntityId: product_123
+                  relatedEntityType: product
             schema:
               $ref: "#/components/schemas/RequestUploadUrlDto"
         required: true
@@ -5588,19 +5747,19 @@ paths:
                   summary: File metadata after confirmation
                   value:
                     id: file_abc123xyz
-                    key: user_123/1736951234567-a1b2c3-identity-document.pdf
-                    bucket: my-storage-bucket
-                    filename: identity-document.pdf
-                    mimeType: application/pdf
+                    key: merchant_123/1736951234567-a1b2c3-iphone-15.png
+                    bucket: cashful
+                    filename: iphone-15.png
+                    mimeType: image/png
                     size: 245760
                     tags:
-                    - compliance
-                    - identity-document
+                    - product
+                    - image
                     status: uploaded
                     checksum: sha256:a1b2c3d4e5f6...
-                    isPublic: false
-                    relatedEntityId: compliance_info_123
-                    relatedEntityType: complianceInfo
+                    isPublic: true
+                    relatedEntityId: product_123
+                    relatedEntityType: product
                     uploadedById: user_123
                     createdAt: 2026-01-15T14:00:00.000Z
                     updatedAt: 2026-01-15T14:05:00.000Z
@@ -5751,14 +5910,6 @@ paths:
         schema:
           type: string
         style: form
-      - description: The ID of the merchant. This parameter is required.
-        explode: true
-        in: query
-        name: merchantId
-        required: true
-        schema:
-          type: string
-        style: form
       responses:
         "200":
           content:
@@ -5905,19 +6056,19 @@ paths:
                   summary: File metadata
                   value:
                     id: file_abc123xyz
-                    key: user_123/1736951234567-a1b2c3-identity-document.pdf
-                    bucket: my-storage-bucket
-                    filename: identity-document.pdf
-                    mimeType: application/pdf
+                    key: merchant_123/1736951234567-a1b2c3-iphone-15.png
+                    bucket: cashful
+                    filename: iphone-15.png
+                    mimeType: image/png
                     size: 245760
                     tags:
-                    - compliance
-                    - identity-document
+                    - product
+                    - image
                     status: uploaded
                     checksum: sha256:a1b2c3d4e5f6...
-                    isPublic: false
-                    relatedEntityId: compliance_info_123
-                    relatedEntityType: complianceInfo
+                    isPublic: true
+                    relatedEntityId: product_123
+                    relatedEntityType: product
                     uploadedById: user_123
                     createdAt: 2026-01-15T14:00:00.000Z
                     updatedAt: 2026-01-15T14:05:00.000Z
@@ -6243,6 +6394,98 @@ components:
       required:
       - session
       - user
+      type: object
+    GetJsonWebTokenResponseDto:
+      example:
+        token: token
+      properties:
+        token:
+          description: The JWT token
+          type: string
+      required:
+      - token
+      type: object
+    JwkDto:
+      example:
+        kty: kty
+        e: e
+        use: sig
+        crv: crv
+        kid: kid
+        x: x
+        "y": "y"
+        alg: alg
+        "n": "n"
+      properties:
+        kid:
+          description: Key ID uniquely identifying the key
+          type: string
+        kty:
+          description: "Key type (e.g., 'RSA', 'EC', 'OKP')"
+          type: string
+        alg:
+          description: Algorithm intended for use with the key
+          type: string
+        use:
+          description: Intended use of the public key
+          enum:
+          - sig
+          nullable: true
+          type: string
+        "n":
+          description: Modulus for RSA keys
+          nullable: true
+          type: string
+        e:
+          description: Exponent for RSA keys
+          nullable: true
+          type: string
+        crv:
+          description: Curve name for elliptic curve keys
+          nullable: true
+          type: string
+        x:
+          description: X coordinate for elliptic curve keys
+          nullable: true
+          type: string
+        "y":
+          description: Y coordinate for elliptic curve keys
+          nullable: true
+          type: string
+      required:
+      - alg
+      - kid
+      - kty
+      type: object
+    GetJsonWebKeySetResponseDto:
+      example:
+        keys:
+        - kty: kty
+          e: e
+          use: sig
+          crv: crv
+          kid: kid
+          x: x
+          "y": "y"
+          alg: alg
+          "n": "n"
+        - kty: kty
+          e: e
+          use: sig
+          crv: crv
+          kid: kid
+          x: x
+          "y": "y"
+          alg: alg
+          "n": "n"
+      properties:
+        keys:
+          description: Array of public JSON Web Keys
+          items:
+            $ref: "#/components/schemas/JwkDto"
+          type: array
+      required:
+      - keys
       type: object
     ForgotPasswordDto:
       example:
@@ -9129,6 +9372,56 @@ components:
       - status
       - updatedAt
       type: object
+    ListPaymentIntentsResponseDto:
+      example:
+        pagination: ""
+        data:
+        - amount: 0.8008281904610115
+          metadata:
+            orderId: "12345"
+          idempotencyKey: idempotencyKey
+          description: description
+          expiresAt: 2000-01-23T04:56:07.000+00:00
+          mode: payment
+          createdAt: 2000-01-23T04:56:07.000+00:00
+          deletedAt: 2000-01-23T04:56:07.000+00:00
+          merchantId: merchantId
+          paymentMethodId: paymentMethodId
+          customerId: customerId
+          currency: currency
+          id: id
+          status: initiation
+          updatedAt: 2000-01-23T04:56:07.000+00:00
+        - amount: 0.8008281904610115
+          metadata:
+            orderId: "12345"
+          idempotencyKey: idempotencyKey
+          description: description
+          expiresAt: 2000-01-23T04:56:07.000+00:00
+          mode: payment
+          createdAt: 2000-01-23T04:56:07.000+00:00
+          deletedAt: 2000-01-23T04:56:07.000+00:00
+          merchantId: merchantId
+          paymentMethodId: paymentMethodId
+          customerId: customerId
+          currency: currency
+          id: id
+          status: initiation
+          updatedAt: 2000-01-23T04:56:07.000+00:00
+      properties:
+        data:
+          description: List of payment intents
+          items:
+            $ref: "#/components/schemas/PaymentIntentResponseDto"
+          type: array
+        pagination:
+          allOf:
+          - $ref: "#/components/schemas/PaginationResponseDto"
+          description: Pagination metadata
+      required:
+      - data
+      - pagination
+      type: object
     CreatePaymentLinkDto:
       example:
         mode: payment
@@ -9471,6 +9764,7 @@ components:
         metadata:
           sku: PROD-001
           category: electronics
+        imageId: imageId
         merchantId: merchantId
         name: name
         description: description
@@ -9496,6 +9790,9 @@ components:
         active:
           description: Whether the product is active
           type: boolean
+        imageId:
+          description: The ID of the product image file
+          type: string
         metadata:
           additionalProperties: true
           description: Optional custom metadata
@@ -9510,15 +9807,17 @@ components:
       type: object
     ProductResponseDto:
       example:
-        createdAt: 2000-01-23T04:56:07.000+00:00
-        deletedAt: 2000-01-23T04:56:07.000+00:00
         amount: 0.8008281904610115
         metadata:
           sku: PROD-001
-        merchantId: merchantId
-        name: name
+        imageId: imageId
         description: description
         active: true
+        createdAt: 2000-01-23T04:56:07.000+00:00
+        deletedAt: 2000-01-23T04:56:07.000+00:00
+        merchantId: merchantId
+        imageUrl: imageUrl
+        name: name
         currency: currency
         id: id
         updatedAt: 2000-01-23T04:56:07.000+00:00
@@ -9547,6 +9846,12 @@ components:
           type: string
         active:
           type: boolean
+        imageId:
+          description: The ID of the product image file
+          type: string
+        imageUrl:
+          description: The public URL of the product image
+          type: string
         metadata:
           additionalProperties: true
           example:
@@ -9570,27 +9875,31 @@ components:
           limit: 50
           hasMore: true
         data:
-        - createdAt: 2000-01-23T04:56:07.000+00:00
-          deletedAt: 2000-01-23T04:56:07.000+00:00
-          amount: 0.8008281904610115
+        - amount: 0.8008281904610115
           metadata:
             sku: PROD-001
-          merchantId: merchantId
-          name: name
+          imageId: imageId
           description: description
           active: true
+          createdAt: 2000-01-23T04:56:07.000+00:00
+          deletedAt: 2000-01-23T04:56:07.000+00:00
+          merchantId: merchantId
+          imageUrl: imageUrl
+          name: name
           currency: currency
           id: id
           updatedAt: 2000-01-23T04:56:07.000+00:00
-        - createdAt: 2000-01-23T04:56:07.000+00:00
-          deletedAt: 2000-01-23T04:56:07.000+00:00
-          amount: 0.8008281904610115
+        - amount: 0.8008281904610115
           metadata:
             sku: PROD-001
-          merchantId: merchantId
-          name: name
+          imageId: imageId
           description: description
           active: true
+          createdAt: 2000-01-23T04:56:07.000+00:00
+          deletedAt: 2000-01-23T04:56:07.000+00:00
+          merchantId: merchantId
+          imageUrl: imageUrl
+          name: name
           currency: currency
           id: id
           updatedAt: 2000-01-23T04:56:07.000+00:00
@@ -9610,6 +9919,7 @@ components:
         amount: 0.8008281904610115
         metadata:
           sku: PROD-001
+        imageId: imageId
         name: name
         description: description
         active: true
@@ -9626,6 +9936,9 @@ components:
         active:
           description: Whether the product is active
           type: boolean
+        imageId:
+          description: The ID of the product image file
+          type: string
         metadata:
           additionalProperties: true
           description: Optional custom metadata
@@ -9850,6 +10163,44 @@ components:
       - status
       - toCustomerId
       - updatedAt
+      type: object
+    ListTransfersResponseDto:
+      example:
+        pagination: ""
+        data:
+        - createdAt: 2000-01-23T04:56:07.000+00:00
+          amount: 0.8008281904610115
+          fromCustomerId: fromCustomerId
+          merchantId: merchantId
+          description: description
+          currency: currency
+          id: id
+          toCustomerId: toCustomerId
+          status: status
+          updatedAt: 2000-01-23T04:56:07.000+00:00
+        - createdAt: 2000-01-23T04:56:07.000+00:00
+          amount: 0.8008281904610115
+          fromCustomerId: fromCustomerId
+          merchantId: merchantId
+          description: description
+          currency: currency
+          id: id
+          toCustomerId: toCustomerId
+          status: status
+          updatedAt: 2000-01-23T04:56:07.000+00:00
+      properties:
+        data:
+          description: List of transfers
+          items:
+            $ref: "#/components/schemas/TransferResponseDto"
+          type: array
+        pagination:
+          allOf:
+          - $ref: "#/components/schemas/PaginationResponseDto"
+          description: Pagination metadata
+      required:
+      - data
+      - pagination
       type: object
     CreatePurchaseDto:
       example:
@@ -11004,6 +11355,7 @@ components:
       example:
         filename: filename
         relatedEntityId: relatedEntityId
+        isPublic: false
         mimeType: image/png
         relatedEntityType: relatedEntityType
         tags:
@@ -11031,6 +11383,10 @@ components:
         relatedEntityType:
           description: Related entity type
           type: string
+        isPublic:
+          default: false
+          description: Whether the file should be publicly accessible
+          type: boolean
       required:
       - filename
       - mimeType

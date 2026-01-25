@@ -82,7 +82,7 @@ public class Example {
 
 <a id="listProducts"></a>
 # **listProducts**
-> ListProductsResponseDto listProducts(merchantId, limit, offset, active)
+> ListProductsResponseDto listProducts(limit, offset, merchantId, active)
 
 List Products
 
@@ -108,12 +108,12 @@ public class Example {
     bearer.setBearerToken("BEARER TOKEN");
 
     ProductsApi apiInstance = new ProductsApi(defaultClient);
-    String merchantId = "merchantId_example"; // String | The ID of the merchant. This parameter is required.
     BigDecimal limit = new BigDecimal("50"); // BigDecimal | Maximum number of records to return
     BigDecimal offset = new BigDecimal("0"); // BigDecimal | Number of records to skip
+    String merchantId = "merchantId_example"; // String | The ID of the merchant whose products are being requested. If not provided, the products of the authenticated merchant will be returned.
     Boolean active = true; // Boolean | Filter by active status
     try {
-      ListProductsResponseDto result = apiInstance.listProducts(merchantId, limit, offset, active);
+      ListProductsResponseDto result = apiInstance.listProducts(limit, offset, merchantId, active);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ProductsApi#listProducts");
@@ -130,9 +130,9 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **merchantId** | **String**| The ID of the merchant. This parameter is required. | |
 | **limit** | **BigDecimal**| Maximum number of records to return | [optional] |
 | **offset** | **BigDecimal**| Number of records to skip | [optional] |
+| **merchantId** | **String**| The ID of the merchant whose products are being requested. If not provided, the products of the authenticated merchant will be returned. | [optional] |
 | **active** | **Boolean**| Filter by active status | [optional] |
 
 ### Return type

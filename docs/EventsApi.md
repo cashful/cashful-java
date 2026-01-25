@@ -35,9 +35,9 @@ public class Example {
     bearer.setBearerToken("BEARER TOKEN");
 
     EventsApi apiInstance = new EventsApi(defaultClient);
-    String merchantId = "merchantId_example"; // String | The ID of the merchant. This parameter is required.
-    BigDecimal limit = new BigDecimal(78); // BigDecimal | Maximum number of records to return
-    BigDecimal offset = new BigDecimal(78); // BigDecimal | Number of records to skip
+    String merchantId = "merchantId_example"; // String | The ID of the merchant whose events are being requested. This parameter is required.
+    BigDecimal limit = new BigDecimal("50"); // BigDecimal | Maximum number of records to return
+    BigDecimal offset = new BigDecimal("0"); // BigDecimal | Number of records to skip
     String type = "type_example"; // String | Filter by event type
     String status = "pending"; // String | Filter by event status
     String startDate = "startDate_example"; // String | Filter by start date
@@ -60,7 +60,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **merchantId** | **String**| The ID of the merchant. This parameter is required. | |
+| **merchantId** | **String**| The ID of the merchant whose events are being requested. This parameter is required. | |
 | **limit** | **BigDecimal**| Maximum number of records to return | [optional] |
 | **offset** | **BigDecimal**| Number of records to skip | [optional] |
 | **type** | **String**| Filter by event type | [optional] |

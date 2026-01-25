@@ -12,6 +12,7 @@
 |**tags** | **List&lt;String&gt;** | Tags for classification |  [optional] |
 |**relatedEntityId** | **String** | Related entity ID (e.g., compliance info ID) |  [optional] |
 |**relatedEntityType** | **String** | Related entity type |  [optional] |
+|**isPublic** | **Boolean** | Whether the file should be publicly accessible |  [optional] |
 
 
 ## Implemented Interfaces

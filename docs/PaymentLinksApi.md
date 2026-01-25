@@ -108,7 +108,7 @@ public class Example {
     bearer.setBearerToken("BEARER TOKEN");
 
     PaymentLinksApi apiInstance = new PaymentLinksApi(defaultClient);
-    String merchantId = "merchantId_example"; // String | The ID of the merchant. This parameter is required.
+    String merchantId = "merchantId_example"; // String | The ID of the merchant whose payment links are being requested. If omitted, defaults to the authenticated merchant.
     BigDecimal limit = new BigDecimal(78); // BigDecimal | Maximum number of records to return
     BigDecimal offset = new BigDecimal(78); // BigDecimal | Number of records to skip
     Boolean active = true; // Boolean | Filter by active status
@@ -130,7 +130,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **merchantId** | **String**| The ID of the merchant. This parameter is required. | |
+| **merchantId** | **String**| The ID of the merchant whose payment links are being requested. If omitted, defaults to the authenticated merchant. | [optional] |
 | **limit** | **BigDecimal**| Maximum number of records to return | [optional] |
 | **offset** | **BigDecimal**| Number of records to skip | [optional] |
 | **active** | **Boolean**| Filter by active status | [optional] |

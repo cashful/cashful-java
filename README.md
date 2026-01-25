@@ -1,7 +1,7 @@
 # cashful-java-sdk
 
 Cashful API
-- API version: 0.6.2
+- API version: 0.7.0
   - Generator version: 7.17.0
 
 Developer documentation for the Cashful platform.
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.cashful</groupId>
   <artifactId>cashful-java-sdk</artifactId>
-  <version>0.6.2</version>
+  <version>0.7.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -57,7 +57,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.cashful:cashful-java-sdk:0.6.2"
+     implementation "com.cashful:cashful-java-sdk:0.7.0"
   }
 ```
 
@@ -71,7 +71,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/cashful-java-sdk-0.6.2.jar`
+* `target/cashful-java-sdk-0.7.0.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -98,7 +98,7 @@ public class Example {
     bearer.setBearerToken("BEARER TOKEN");
 
     AnalyticsApi apiInstance = new AnalyticsApi(defaultClient);
-    String merchantId = "merchant_123"; // String | The unique identifier of the merchant
+    String merchantId = "merchant_123"; // String | The unique identifier of the merchant. If not provided, defaults to the authenticated user's active organization.
     try {
       AnalyticsResponseDto result = apiInstance.getAnalytics(merchantId);
       System.out.println(result);
@@ -138,6 +138,8 @@ Class | Method | HTTP request | Description
 *AuthenticationApi* | [**getActiveMemberRole**](docs/AuthenticationApi.md#getActiveMemberRole) | **GET** /api/canary/authentication/organization/get-active-member-role | Get Active Member Role
 *AuthenticationApi* | [**getApiKey**](docs/AuthenticationApi.md#getApiKey) | **GET** /api/canary/authentication/api-key/get | Get API Key
 *AuthenticationApi* | [**getInvitation**](docs/AuthenticationApi.md#getInvitation) | **GET** /api/canary/authentication/organization/get-invitation | Get Invitation
+*AuthenticationApi* | [**getJSONWebKeySet**](docs/AuthenticationApi.md#getJSONWebKeySet) | **GET** /api/canary/authentication/jwks | Get the JSON Web Key Set
+*AuthenticationApi* | [**getJSONWebToken**](docs/AuthenticationApi.md#getJSONWebToken) | **GET** /api/canary/authentication/token | Get a JWT token
 *AuthenticationApi* | [**getOrganization**](docs/AuthenticationApi.md#getOrganization) | **GET** /api/canary/authentication/organization/get-full-organization | Get Full Organization
 *AuthenticationApi* | [**getSession**](docs/AuthenticationApi.md#getSession) | **GET** /api/canary/authentication/get-session | Get Session
 *AuthenticationApi* | [**hasPermission**](docs/AuthenticationApi.md#hasPermission) | **POST** /api/canary/authentication/organization/has-permission | Has Permission
@@ -227,6 +229,7 @@ Class | Method | HTTP request | Description
 *StorageApi* | [**storageControllerRequestUploadUrlCanary**](docs/StorageApi.md#storageControllerRequestUploadUrlCanary) | **POST** /api/canary/storage/upload-url | Request a presigned URL for file upload
 *StorageApi* | [**storageControllerRetrieveCanary**](docs/StorageApi.md#storageControllerRetrieveCanary) | **GET** /api/canary/storage/{id} | Get file details
 *TransfersApi* | [**createTransfer**](docs/TransfersApi.md#createTransfer) | **POST** /api/canary/transfers | Create P2P Transfer
+*TransfersApi* | [**listTransfers**](docs/TransfersApi.md#listTransfers) | **GET** /api/canary/transfers | List Transfers
 *WebhooksApi* | [**createWebhookEndpoint**](docs/WebhooksApi.md#createWebhookEndpoint) | **POST** /api/canary/webhook-endpoints | Create Webhook Endpoint
 *WebhooksApi* | [**deleteWebhookEndpoint**](docs/WebhooksApi.md#deleteWebhookEndpoint) | **DELETE** /api/canary/webhook-endpoints/{id} | Delete Webhook Endpoint
 *WebhooksApi* | [**listWebhookEndpoints**](docs/WebhooksApi.md#listWebhookEndpoints) | **GET** /api/canary/webhook-endpoints | List Webhook Endpoints
@@ -312,6 +315,8 @@ Class | Method | HTTP request | Description
  - [GetApiKeyResponseDto](docs/GetApiKeyResponseDto.md)
  - [GetFullOrganizationResponseDto](docs/GetFullOrganizationResponseDto.md)
  - [GetInvitationResponseDto](docs/GetInvitationResponseDto.md)
+ - [GetJsonWebKeySetResponseDto](docs/GetJsonWebKeySetResponseDto.md)
+ - [GetJsonWebTokenResponseDto](docs/GetJsonWebTokenResponseDto.md)
  - [GetSessionResponseDto](docs/GetSessionResponseDto.md)
  - [HasPermissionDto](docs/HasPermissionDto.md)
  - [HasPermissionResponseDto](docs/HasPermissionResponseDto.md)
@@ -326,6 +331,7 @@ Class | Method | HTTP request | Description
  - [IsUsernameAvailableDto](docs/IsUsernameAvailableDto.md)
  - [IsUsernameAvailableResponseDto](docs/IsUsernameAvailableResponseDto.md)
  - [IveriParamsDto](docs/IveriParamsDto.md)
+ - [JwkDto](docs/JwkDto.md)
  - [LeaveOrganizationDto](docs/LeaveOrganizationDto.md)
  - [LeaveOrganizationResponseDto](docs/LeaveOrganizationResponseDto.md)
  - [LineItemDto](docs/LineItemDto.md)
@@ -342,11 +348,13 @@ Class | Method | HTTP request | Description
  - [ListInvitationsResponseDto](docs/ListInvitationsResponseDto.md)
  - [ListMembersResponseDto](docs/ListMembersResponseDto.md)
  - [ListOrganizationComplianceResponseDto](docs/ListOrganizationComplianceResponseDto.md)
+ - [ListPaymentIntentsResponseDto](docs/ListPaymentIntentsResponseDto.md)
  - [ListPaymentLinksResponseDto](docs/ListPaymentLinksResponseDto.md)
  - [ListPaymentMethodsResponseDto](docs/ListPaymentMethodsResponseDto.md)
  - [ListPayoutsResponseDto](docs/ListPayoutsResponseDto.md)
  - [ListProductsResponseDto](docs/ListProductsResponseDto.md)
  - [ListSessionsResponseDto](docs/ListSessionsResponseDto.md)
+ - [ListTransfersResponseDto](docs/ListTransfersResponseDto.md)
  - [ListUserInvitationsResponseDto](docs/ListUserInvitationsResponseDto.md)
  - [ListUsersResponseDto](docs/ListUsersResponseDto.md)
  - [ListWebhookEndpointsResponseDto](docs/ListWebhookEndpointsResponseDto.md)
