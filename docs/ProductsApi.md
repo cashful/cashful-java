@@ -6,6 +6,7 @@ All URIs are relative to *https://api.cashful.africa*
 |------------- | ------------- | -------------|
 | [**createProduct**](ProductsApi.md#createProduct) | **POST** /api/canary/products | Create Product |
 | [**listProducts**](ProductsApi.md#listProducts) | **GET** /api/canary/products | List Products |
+| [**retrieveMultipleProducts**](ProductsApi.md#retrieveMultipleProducts) | **POST** /api/canary/products/multiple | Retrieve Multiple Products by ID |
 | [**retrieveProduct**](ProductsApi.md#retrieveProduct) | **GET** /api/canary/products/{id} | Retrieve Product |
 | [**updateProduct**](ProductsApi.md#updateProduct) | **PATCH** /api/canary/products/{id} | Update Product |
 
@@ -157,6 +158,77 @@ public class Example {
 | **404** | Resource not found |  -  |
 | **500** | Internal server error |  -  |
 
+<a id="retrieveMultipleProducts"></a>
+# **retrieveMultipleProducts**
+> List&lt;ProductResponseDto&gt; retrieveMultipleProducts(retrieveMultipleProductsDto)
+
+Retrieve Multiple Products by ID
+
+Retrieves multiple products using the provided ID&#39;s with a maximum of 50 IDs.
+
+### Example
+```java
+// Import classes:
+import com.cashful.ApiClient;
+import com.cashful.ApiException;
+import com.cashful.Configuration;
+import com.cashful.auth.*;
+import com.cashful.models.*;
+import com.cashful.api.ProductsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.cashful.africa");
+    
+    // Configure HTTP bearer authorization: bearer
+    HttpBearerAuth bearer = (HttpBearerAuth) defaultClient.getAuthentication("bearer");
+    bearer.setBearerToken("BEARER TOKEN");
+
+    ProductsApi apiInstance = new ProductsApi(defaultClient);
+    RetrieveMultipleProductsDto retrieveMultipleProductsDto = new RetrieveMultipleProductsDto(); // RetrieveMultipleProductsDto | List of product IDs
+    try {
+      List<ProductResponseDto> result = apiInstance.retrieveMultipleProducts(retrieveMultipleProductsDto);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ProductsApi#retrieveMultipleProducts");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **retrieveMultipleProductsDto** | [**RetrieveMultipleProductsDto**](RetrieveMultipleProductsDto.md)| List of product IDs | |
+
+### Return type
+
+[**List&lt;ProductResponseDto&gt;**](ProductResponseDto.md)
+
+### Authorization
+
+[bearer](../README.md#bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successfully retrieved products |  -  |
+| **400** | Bad Request - Invalid input |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | Resource not found |  -  |
+| **500** | Internal server error |  -  |
+
 <a id="retrieveProduct"></a>
 # **retrieveProduct**
 > ProductResponseDto retrieveProduct(id)
@@ -223,6 +295,7 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successfully retrieved product |  -  |
+| **400** | Bad Request - Invalid input |  -  |
 | **401** | Unauthorized |  -  |
 | **404** | Resource not found |  -  |
 | **500** | Internal server error |  -  |

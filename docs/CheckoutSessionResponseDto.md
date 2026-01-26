@@ -23,6 +23,7 @@
 |**status** | **String** |  |  |
 |**expiresAt** | **OffsetDateTime** |  |  [optional] |
 |**metadata** | **Map&lt;String, Object&gt;** |  |  |
+|**hostedCheckoutConfig** | [**HostedCheckoutConfigDto**](HostedCheckoutConfigDto.md) | Configuration for the hosted checkout page |  [optional] |
 
 
 ## Implemented Interfaces

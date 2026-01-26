@@ -1,7 +1,7 @@
 # cashful-java-sdk
 
 Cashful API
-- API version: 0.7.0
+- API version: 0.8.0
   - Generator version: 7.17.0
 
 Developer documentation for the Cashful platform.
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.cashful</groupId>
   <artifactId>cashful-java-sdk</artifactId>
-  <version>0.7.0</version>
+  <version>0.8.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -57,7 +57,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.cashful:cashful-java-sdk:0.7.0"
+     implementation "com.cashful:cashful-java-sdk:0.8.0"
   }
 ```
 
@@ -71,7 +71,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/cashful-java-sdk-0.7.0.jar`
+* `target/cashful-java-sdk-0.8.0.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -219,15 +219,16 @@ Class | Method | HTTP request | Description
 *PayoutsApi* | [**listPayouts**](docs/PayoutsApi.md#listPayouts) | **GET** /api/canary/payouts | List Payouts
 *ProductsApi* | [**createProduct**](docs/ProductsApi.md#createProduct) | **POST** /api/canary/products | Create Product
 *ProductsApi* | [**listProducts**](docs/ProductsApi.md#listProducts) | **GET** /api/canary/products | List Products
+*ProductsApi* | [**retrieveMultipleProducts**](docs/ProductsApi.md#retrieveMultipleProducts) | **POST** /api/canary/products/multiple | Retrieve Multiple Products by ID
 *ProductsApi* | [**retrieveProduct**](docs/ProductsApi.md#retrieveProduct) | **GET** /api/canary/products/{id} | Retrieve Product
 *ProductsApi* | [**updateProduct**](docs/ProductsApi.md#updateProduct) | **PATCH** /api/canary/products/{id} | Update Product
 *PurchasesApi* | [**createPurchase**](docs/PurchasesApi.md#createPurchase) | **POST** /api/canary/purchases | Buy with Cash Balance
-*StorageApi* | [**storageControllerConfirmUploadCanary**](docs/StorageApi.md#storageControllerConfirmUploadCanary) | **POST** /api/canary/storage/confirm-upload | Confirm that a file upload was completed
-*StorageApi* | [**storageControllerDeleteCanary**](docs/StorageApi.md#storageControllerDeleteCanary) | **DELETE** /api/canary/storage/{id} | Delete a file
-*StorageApi* | [**storageControllerGetDownloadUrlCanary**](docs/StorageApi.md#storageControllerGetDownloadUrlCanary) | **GET** /api/canary/storage/{id}/download-url | Get a presigned download URL for a file
-*StorageApi* | [**storageControllerListCanary**](docs/StorageApi.md#storageControllerListCanary) | **GET** /api/canary/storage | List files
-*StorageApi* | [**storageControllerRequestUploadUrlCanary**](docs/StorageApi.md#storageControllerRequestUploadUrlCanary) | **POST** /api/canary/storage/upload-url | Request a presigned URL for file upload
-*StorageApi* | [**storageControllerRetrieveCanary**](docs/StorageApi.md#storageControllerRetrieveCanary) | **GET** /api/canary/storage/{id} | Get file details
+*StorageApi* | [**confirmUpload**](docs/StorageApi.md#confirmUpload) | **POST** /api/canary/storage/confirm-upload | Confirm that a file upload was completed
+*StorageApi* | [**deleteFile**](docs/StorageApi.md#deleteFile) | **DELETE** /api/canary/storage/{id} | Delete a file
+*StorageApi* | [**getDownloadUrl**](docs/StorageApi.md#getDownloadUrl) | **GET** /api/canary/storage/{id}/download-url | Get a presigned download URL for a file
+*StorageApi* | [**getFileDetails**](docs/StorageApi.md#getFileDetails) | **GET** /api/canary/storage/{id} | Get file details
+*StorageApi* | [**listFiles**](docs/StorageApi.md#listFiles) | **GET** /api/canary/storage | List files
+*StorageApi* | [**requestUploadUrl**](docs/StorageApi.md#requestUploadUrl) | **POST** /api/canary/storage/upload-url | Request a presigned URL for file upload
 *TransfersApi* | [**createTransfer**](docs/TransfersApi.md#createTransfer) | **POST** /api/canary/transfers | Create P2P Transfer
 *TransfersApi* | [**listTransfers**](docs/TransfersApi.md#listTransfers) | **GET** /api/canary/transfers | List Transfers
 *WebhooksApi* | [**createWebhookEndpoint**](docs/WebhooksApi.md#createWebhookEndpoint) | **POST** /api/canary/webhook-endpoints | Create Webhook Endpoint
@@ -258,6 +259,7 @@ Class | Method | HTTP request | Description
  - [AnalyticsResponseDto](docs/AnalyticsResponseDto.md)
  - [AnalyticsSummaryDto](docs/AnalyticsSummaryDto.md)
  - [ApiKey](docs/ApiKey.md)
+ - [BadRequestResponseDto](docs/BadRequestResponseDto.md)
  - [BalanceHistoryResponseDto](docs/BalanceHistoryResponseDto.md)
  - [BalanceTransactionDto](docs/BalanceTransactionDto.md)
  - [BanUserDto](docs/BanUserDto.md)
@@ -302,10 +304,10 @@ Class | Method | HTTP request | Description
  - [DeleteOrganizationResponseDto](docs/DeleteOrganizationResponseDto.md)
  - [DeleteUserDto](docs/DeleteUserDto.md)
  - [DeleteUserResponseDto](docs/DeleteUserResponseDto.md)
- - [ErrorResponseDto](docs/ErrorResponseDto.md)
  - [EventResponseDto](docs/EventResponseDto.md)
  - [EvervaultEncryptedCardDto](docs/EvervaultEncryptedCardDto.md)
  - [FileDto](docs/FileDto.md)
+ - [ForbiddenResponseDto](docs/ForbiddenResponseDto.md)
  - [ForgotPasswordDto](docs/ForgotPasswordDto.md)
  - [ForgotPasswordResponseDto](docs/ForgotPasswordResponseDto.md)
  - [GetAccessTokenDto](docs/GetAccessTokenDto.md)
@@ -320,11 +322,13 @@ Class | Method | HTTP request | Description
  - [GetSessionResponseDto](docs/GetSessionResponseDto.md)
  - [HasPermissionDto](docs/HasPermissionDto.md)
  - [HasPermissionResponseDto](docs/HasPermissionResponseDto.md)
+ - [HostedCheckoutConfigDto](docs/HostedCheckoutConfigDto.md)
  - [IVeriHealthCheckResponseDto](docs/IVeriHealthCheckResponseDto.md)
  - [ImpersonateUserDto](docs/ImpersonateUserDto.md)
  - [ImpersonateUserResponseDto](docs/ImpersonateUserResponseDto.md)
  - [InitiatePaymentDto](docs/InitiatePaymentDto.md)
  - [InitiatePaymentResponseDto](docs/InitiatePaymentResponseDto.md)
+ - [InternalServerErrorResponseDto](docs/InternalServerErrorResponseDto.md)
  - [InvitationDto](docs/InvitationDto.md)
  - [InviteMemberDto](docs/InviteMemberDto.md)
  - [InviteMemberResponseDto](docs/InviteMemberResponseDto.md)
@@ -361,6 +365,7 @@ Class | Method | HTTP request | Description
  - [MemberDto](docs/MemberDto.md)
  - [MerchantBalanceResponseDto](docs/MerchantBalanceResponseDto.md)
  - [MetricStatsDto](docs/MetricStatsDto.md)
+ - [NotFoundResponseDto](docs/NotFoundResponseDto.md)
  - [NotificationDto](docs/NotificationDto.md)
  - [OrganizationComplianceResponseDto](docs/OrganizationComplianceResponseDto.md)
  - [OrganizationDto](docs/OrganizationDto.md)
@@ -389,6 +394,7 @@ Class | Method | HTTP request | Description
  - [ResetPasswordResponseDto](docs/ResetPasswordResponseDto.md)
  - [ResetPhonePasswordDto](docs/ResetPhonePasswordDto.md)
  - [ResetPhonePasswordResponseDto](docs/ResetPhonePasswordResponseDto.md)
+ - [RetrieveMultipleProductsDto](docs/RetrieveMultipleProductsDto.md)
  - [RevokeSessionDto](docs/RevokeSessionDto.md)
  - [RevokeSessionResponseDto](docs/RevokeSessionResponseDto.md)
  - [SendEmail200Response](docs/SendEmail200Response.md)
@@ -416,6 +422,7 @@ Class | Method | HTTP request | Description
  - [StopImpersonatingResponseDto](docs/StopImpersonatingResponseDto.md)
  - [TimeframeMetricsDto](docs/TimeframeMetricsDto.md)
  - [TransferResponseDto](docs/TransferResponseDto.md)
+ - [UnauthorizedResponseDto](docs/UnauthorizedResponseDto.md)
  - [UnbanUserDto](docs/UnbanUserDto.md)
  - [UnbanUserResponseDto](docs/UnbanUserResponseDto.md)
  - [UnlinkAccountDto](docs/UnlinkAccountDto.md)
@@ -423,6 +430,8 @@ Class | Method | HTTP request | Description
  - [UpdateApiKeyDto](docs/UpdateApiKeyDto.md)
  - [UpdateApiKeyResponseDto](docs/UpdateApiKeyResponseDto.md)
  - [UpdateBalanceDto](docs/UpdateBalanceDto.md)
+ - [UpdateCheckoutSessionDto](docs/UpdateCheckoutSessionDto.md)
+ - [UpdateCheckoutSessionResponseDto](docs/UpdateCheckoutSessionResponseDto.md)
  - [UpdateCustomerDto](docs/UpdateCustomerDto.md)
  - [UpdateMemberRoleDto](docs/UpdateMemberRoleDto.md)
  - [UpdateMemberRoleResponseDto](docs/UpdateMemberRoleResponseDto.md)

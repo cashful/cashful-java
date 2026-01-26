@@ -4,17 +4,17 @@ All URIs are relative to *https://api.cashful.africa*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**storageControllerConfirmUploadCanary**](StorageApi.md#storageControllerConfirmUploadCanary) | **POST** /api/canary/storage/confirm-upload | Confirm that a file upload was completed |
-| [**storageControllerDeleteCanary**](StorageApi.md#storageControllerDeleteCanary) | **DELETE** /api/canary/storage/{id} | Delete a file |
-| [**storageControllerGetDownloadUrlCanary**](StorageApi.md#storageControllerGetDownloadUrlCanary) | **GET** /api/canary/storage/{id}/download-url | Get a presigned download URL for a file |
-| [**storageControllerListCanary**](StorageApi.md#storageControllerListCanary) | **GET** /api/canary/storage | List files |
-| [**storageControllerRequestUploadUrlCanary**](StorageApi.md#storageControllerRequestUploadUrlCanary) | **POST** /api/canary/storage/upload-url | Request a presigned URL for file upload |
-| [**storageControllerRetrieveCanary**](StorageApi.md#storageControllerRetrieveCanary) | **GET** /api/canary/storage/{id} | Get file details |
+| [**confirmUpload**](StorageApi.md#confirmUpload) | **POST** /api/canary/storage/confirm-upload | Confirm that a file upload was completed |
+| [**deleteFile**](StorageApi.md#deleteFile) | **DELETE** /api/canary/storage/{id} | Delete a file |
+| [**getDownloadUrl**](StorageApi.md#getDownloadUrl) | **GET** /api/canary/storage/{id}/download-url | Get a presigned download URL for a file |
+| [**getFileDetails**](StorageApi.md#getFileDetails) | **GET** /api/canary/storage/{id} | Get file details |
+| [**listFiles**](StorageApi.md#listFiles) | **GET** /api/canary/storage | List files |
+| [**requestUploadUrl**](StorageApi.md#requestUploadUrl) | **POST** /api/canary/storage/upload-url | Request a presigned URL for file upload |
 
 
-<a id="storageControllerConfirmUploadCanary"></a>
-# **storageControllerConfirmUploadCanary**
-> FileDto storageControllerConfirmUploadCanary(confirmUploadDto)
+<a id="confirmUpload"></a>
+# **confirmUpload**
+> FileDto confirmUpload(confirmUploadDto)
 
 Confirm that a file upload was completed
 
@@ -40,10 +40,10 @@ public class Example {
     StorageApi apiInstance = new StorageApi(defaultClient);
     ConfirmUploadDto confirmUploadDto = new ConfirmUploadDto(); // ConfirmUploadDto | 
     try {
-      FileDto result = apiInstance.storageControllerConfirmUploadCanary(confirmUploadDto);
+      FileDto result = apiInstance.confirmUpload(confirmUploadDto);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling StorageApi#storageControllerConfirmUploadCanary");
+      System.err.println("Exception when calling StorageApi#confirmUpload");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -81,9 +81,9 @@ public class Example {
 | **404** | Resource not found |  -  |
 | **500** | Internal server error |  -  |
 
-<a id="storageControllerDeleteCanary"></a>
-# **storageControllerDeleteCanary**
-> storageControllerDeleteCanary(id)
+<a id="deleteFile"></a>
+# **deleteFile**
+> deleteFile(id)
 
 Delete a file
 
@@ -109,9 +109,9 @@ public class Example {
     StorageApi apiInstance = new StorageApi(defaultClient);
     String id = "id_example"; // String | File ID
     try {
-      apiInstance.storageControllerDeleteCanary(id);
+      apiInstance.deleteFile(id);
     } catch (ApiException e) {
-      System.err.println("Exception when calling StorageApi#storageControllerDeleteCanary");
+      System.err.println("Exception when calling StorageApi#deleteFile");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -149,9 +149,9 @@ null (empty response body)
 | **404** | Resource not found |  -  |
 | **500** | Internal server error |  -  |
 
-<a id="storageControllerGetDownloadUrlCanary"></a>
-# **storageControllerGetDownloadUrlCanary**
-> PresignedDownloadResponseDto storageControllerGetDownloadUrlCanary(id)
+<a id="getDownloadUrl"></a>
+# **getDownloadUrl**
+> PresignedDownloadResponseDto getDownloadUrl(id)
 
 Get a presigned download URL for a file
 
@@ -177,10 +177,10 @@ public class Example {
     StorageApi apiInstance = new StorageApi(defaultClient);
     String id = "id_example"; // String | File ID
     try {
-      PresignedDownloadResponseDto result = apiInstance.storageControllerGetDownloadUrlCanary(id);
+      PresignedDownloadResponseDto result = apiInstance.getDownloadUrl(id);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling StorageApi#storageControllerGetDownloadUrlCanary");
+      System.err.println("Exception when calling StorageApi#getDownloadUrl");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -218,9 +218,78 @@ public class Example {
 | **404** | Resource not found |  -  |
 | **500** | Internal server error |  -  |
 
-<a id="storageControllerListCanary"></a>
-# **storageControllerListCanary**
-> ListFilesResponseDto storageControllerListCanary(limit, offset, tag, status, relatedEntityId, relatedEntityType)
+<a id="getFileDetails"></a>
+# **getFileDetails**
+> FileDto getFileDetails(id)
+
+Get file details
+
+### Example
+```java
+// Import classes:
+import com.cashful.ApiClient;
+import com.cashful.ApiException;
+import com.cashful.Configuration;
+import com.cashful.auth.*;
+import com.cashful.models.*;
+import com.cashful.api.StorageApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.cashful.africa");
+    
+    // Configure HTTP bearer authorization: bearer
+    HttpBearerAuth bearer = (HttpBearerAuth) defaultClient.getAuthentication("bearer");
+    bearer.setBearerToken("BEARER TOKEN");
+
+    StorageApi apiInstance = new StorageApi(defaultClient);
+    String id = "id_example"; // String | File ID
+    try {
+      FileDto result = apiInstance.getFileDetails(id);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling StorageApi#getFileDetails");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **String**| File ID | |
+
+### Return type
+
+[**FileDto**](FileDto.md)
+
+### Authorization
+
+[bearer](../README.md#bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** |  |  -  |
+| **400** | Bad Request - Invalid input |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | Resource not found |  -  |
+| **500** | Internal server error |  -  |
+
+<a id="listFiles"></a>
+# **listFiles**
+> ListFilesResponseDto listFiles(limit, offset, tag, status, relatedEntityId, relatedEntityType)
 
 List files
 
@@ -251,10 +320,10 @@ public class Example {
     String relatedEntityId = "relatedEntityId_example"; // String | 
     String relatedEntityType = "relatedEntityType_example"; // String | 
     try {
-      ListFilesResponseDto result = apiInstance.storageControllerListCanary(limit, offset, tag, status, relatedEntityId, relatedEntityType);
+      ListFilesResponseDto result = apiInstance.listFiles(limit, offset, tag, status, relatedEntityId, relatedEntityType);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling StorageApi#storageControllerListCanary");
+      System.err.println("Exception when calling StorageApi#listFiles");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -297,9 +366,9 @@ public class Example {
 | **404** | Resource not found |  -  |
 | **500** | Internal server error |  -  |
 
-<a id="storageControllerRequestUploadUrlCanary"></a>
-# **storageControllerRequestUploadUrlCanary**
-> PresignedUploadResponseDto storageControllerRequestUploadUrlCanary(requestUploadUrlDto)
+<a id="requestUploadUrl"></a>
+# **requestUploadUrl**
+> PresignedUploadResponseDto requestUploadUrl(requestUploadUrlDto)
 
 Request a presigned URL for file upload
 
@@ -325,10 +394,10 @@ public class Example {
     StorageApi apiInstance = new StorageApi(defaultClient);
     RequestUploadUrlDto requestUploadUrlDto = new RequestUploadUrlDto(); // RequestUploadUrlDto | 
     try {
-      PresignedUploadResponseDto result = apiInstance.storageControllerRequestUploadUrlCanary(requestUploadUrlDto);
+      PresignedUploadResponseDto result = apiInstance.requestUploadUrl(requestUploadUrlDto);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling StorageApi#storageControllerRequestUploadUrlCanary");
+      System.err.println("Exception when calling StorageApi#requestUploadUrl");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -361,75 +430,6 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **201** |  |  -  |
-| **400** | Bad Request - Invalid input |  -  |
-| **401** | Unauthorized |  -  |
-| **404** | Resource not found |  -  |
-| **500** | Internal server error |  -  |
-
-<a id="storageControllerRetrieveCanary"></a>
-# **storageControllerRetrieveCanary**
-> FileDto storageControllerRetrieveCanary(id)
-
-Get file details
-
-### Example
-```java
-// Import classes:
-import com.cashful.ApiClient;
-import com.cashful.ApiException;
-import com.cashful.Configuration;
-import com.cashful.auth.*;
-import com.cashful.models.*;
-import com.cashful.api.StorageApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.cashful.africa");
-    
-    // Configure HTTP bearer authorization: bearer
-    HttpBearerAuth bearer = (HttpBearerAuth) defaultClient.getAuthentication("bearer");
-    bearer.setBearerToken("BEARER TOKEN");
-
-    StorageApi apiInstance = new StorageApi(defaultClient);
-    String id = "id_example"; // String | File ID
-    try {
-      FileDto result = apiInstance.storageControllerRetrieveCanary(id);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling StorageApi#storageControllerRetrieveCanary");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | **String**| File ID | |
-
-### Return type
-
-[**FileDto**](FileDto.md)
-
-### Authorization
-
-[bearer](../README.md#bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** |  |  -  |
 | **400** | Bad Request - Invalid input |  -  |
 | **401** | Unauthorized |  -  |
 | **404** | Resource not found |  -  |

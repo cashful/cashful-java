@@ -29,6 +29,7 @@ docs/AnalyticsResponseDto.md
 docs/AnalyticsSummaryDto.md
 docs/ApiKey.md
 docs/AuthenticationApi.md
+docs/BadRequestResponseDto.md
 docs/BalanceApi.md
 docs/BalanceHistoryResponseDto.md
 docs/BalanceTransactionDto.md
@@ -77,11 +78,11 @@ docs/DeleteOrganizationDto.md
 docs/DeleteOrganizationResponseDto.md
 docs/DeleteUserDto.md
 docs/DeleteUserResponseDto.md
-docs/ErrorResponseDto.md
 docs/EventResponseDto.md
 docs/EventsApi.md
 docs/EvervaultEncryptedCardDto.md
 docs/FileDto.md
+docs/ForbiddenResponseDto.md
 docs/ForgotPasswordDto.md
 docs/ForgotPasswordResponseDto.md
 docs/GetAccessTokenDto.md
@@ -97,11 +98,13 @@ docs/GetSessionResponseDto.md
 docs/HasPermissionDto.md
 docs/HasPermissionResponseDto.md
 docs/HealthApi.md
+docs/HostedCheckoutConfigDto.md
 docs/IVeriHealthCheckResponseDto.md
 docs/ImpersonateUserDto.md
 docs/ImpersonateUserResponseDto.md
 docs/InitiatePaymentDto.md
 docs/InitiatePaymentResponseDto.md
+docs/InternalServerErrorResponseDto.md
 docs/InvitationDto.md
 docs/InviteMemberDto.md
 docs/InviteMemberResponseDto.md
@@ -138,6 +141,7 @@ docs/ListWebhookEndpointsResponseDto.md
 docs/MemberDto.md
 docs/MerchantBalanceResponseDto.md
 docs/MetricStatsDto.md
+docs/NotFoundResponseDto.md
 docs/NotificationDto.md
 docs/NotificationsApi.md
 docs/OrganizationComplianceResponseDto.md
@@ -173,6 +177,7 @@ docs/ResetPasswordDto.md
 docs/ResetPasswordResponseDto.md
 docs/ResetPhonePasswordDto.md
 docs/ResetPhonePasswordResponseDto.md
+docs/RetrieveMultipleProductsDto.md
 docs/RevokeSessionDto.md
 docs/RevokeSessionResponseDto.md
 docs/SendEmail200Response.md
@@ -202,6 +207,7 @@ docs/StorageApi.md
 docs/TimeframeMetricsDto.md
 docs/TransferResponseDto.md
 docs/TransfersApi.md
+docs/UnauthorizedResponseDto.md
 docs/UnbanUserDto.md
 docs/UnbanUserResponseDto.md
 docs/UnlinkAccountDto.md
@@ -209,6 +215,8 @@ docs/UnlinkAccountResponseDto.md
 docs/UpdateApiKeyDto.md
 docs/UpdateApiKeyResponseDto.md
 docs/UpdateBalanceDto.md
+docs/UpdateCheckoutSessionDto.md
+docs/UpdateCheckoutSessionResponseDto.md
 docs/UpdateCustomerDto.md
 docs/UpdateMemberRoleDto.md
 docs/UpdateMemberRoleResponseDto.md
@@ -294,6 +302,7 @@ src/main/java/com/cashful/model/AdminUpdateUserResponseDto.java
 src/main/java/com/cashful/model/AnalyticsResponseDto.java
 src/main/java/com/cashful/model/AnalyticsSummaryDto.java
 src/main/java/com/cashful/model/ApiKey.java
+src/main/java/com/cashful/model/BadRequestResponseDto.java
 src/main/java/com/cashful/model/BalanceHistoryResponseDto.java
 src/main/java/com/cashful/model/BalanceTransactionDto.java
 src/main/java/com/cashful/model/BanUserDto.java
@@ -338,10 +347,10 @@ src/main/java/com/cashful/model/DeleteOrganizationDto.java
 src/main/java/com/cashful/model/DeleteOrganizationResponseDto.java
 src/main/java/com/cashful/model/DeleteUserDto.java
 src/main/java/com/cashful/model/DeleteUserResponseDto.java
-src/main/java/com/cashful/model/ErrorResponseDto.java
 src/main/java/com/cashful/model/EventResponseDto.java
 src/main/java/com/cashful/model/EvervaultEncryptedCardDto.java
 src/main/java/com/cashful/model/FileDto.java
+src/main/java/com/cashful/model/ForbiddenResponseDto.java
 src/main/java/com/cashful/model/ForgotPasswordDto.java
 src/main/java/com/cashful/model/ForgotPasswordResponseDto.java
 src/main/java/com/cashful/model/GetAccessTokenDto.java
@@ -356,11 +365,13 @@ src/main/java/com/cashful/model/GetJsonWebTokenResponseDto.java
 src/main/java/com/cashful/model/GetSessionResponseDto.java
 src/main/java/com/cashful/model/HasPermissionDto.java
 src/main/java/com/cashful/model/HasPermissionResponseDto.java
+src/main/java/com/cashful/model/HostedCheckoutConfigDto.java
 src/main/java/com/cashful/model/IVeriHealthCheckResponseDto.java
 src/main/java/com/cashful/model/ImpersonateUserDto.java
 src/main/java/com/cashful/model/ImpersonateUserResponseDto.java
 src/main/java/com/cashful/model/InitiatePaymentDto.java
 src/main/java/com/cashful/model/InitiatePaymentResponseDto.java
+src/main/java/com/cashful/model/InternalServerErrorResponseDto.java
 src/main/java/com/cashful/model/InvitationDto.java
 src/main/java/com/cashful/model/InviteMemberDto.java
 src/main/java/com/cashful/model/InviteMemberResponseDto.java
@@ -397,6 +408,7 @@ src/main/java/com/cashful/model/ListWebhookEndpointsResponseDto.java
 src/main/java/com/cashful/model/MemberDto.java
 src/main/java/com/cashful/model/MerchantBalanceResponseDto.java
 src/main/java/com/cashful/model/MetricStatsDto.java
+src/main/java/com/cashful/model/NotFoundResponseDto.java
 src/main/java/com/cashful/model/NotificationDto.java
 src/main/java/com/cashful/model/OrganizationComplianceResponseDto.java
 src/main/java/com/cashful/model/OrganizationDto.java
@@ -425,6 +437,7 @@ src/main/java/com/cashful/model/ResetPasswordDto.java
 src/main/java/com/cashful/model/ResetPasswordResponseDto.java
 src/main/java/com/cashful/model/ResetPhonePasswordDto.java
 src/main/java/com/cashful/model/ResetPhonePasswordResponseDto.java
+src/main/java/com/cashful/model/RetrieveMultipleProductsDto.java
 src/main/java/com/cashful/model/RevokeSessionDto.java
 src/main/java/com/cashful/model/RevokeSessionResponseDto.java
 src/main/java/com/cashful/model/SendEmail200Response.java
@@ -452,6 +465,7 @@ src/main/java/com/cashful/model/SocialSignInDto.java
 src/main/java/com/cashful/model/StopImpersonatingResponseDto.java
 src/main/java/com/cashful/model/TimeframeMetricsDto.java
 src/main/java/com/cashful/model/TransferResponseDto.java
+src/main/java/com/cashful/model/UnauthorizedResponseDto.java
 src/main/java/com/cashful/model/UnbanUserDto.java
 src/main/java/com/cashful/model/UnbanUserResponseDto.java
 src/main/java/com/cashful/model/UnlinkAccountDto.java
@@ -459,6 +473,8 @@ src/main/java/com/cashful/model/UnlinkAccountResponseDto.java
 src/main/java/com/cashful/model/UpdateApiKeyDto.java
 src/main/java/com/cashful/model/UpdateApiKeyResponseDto.java
 src/main/java/com/cashful/model/UpdateBalanceDto.java
+src/main/java/com/cashful/model/UpdateCheckoutSessionDto.java
+src/main/java/com/cashful/model/UpdateCheckoutSessionResponseDto.java
 src/main/java/com/cashful/model/UpdateCustomerDto.java
 src/main/java/com/cashful/model/UpdateMemberRoleDto.java
 src/main/java/com/cashful/model/UpdateMemberRoleResponseDto.java
@@ -516,6 +532,7 @@ src/test/java/com/cashful/model/AdminUpdateUserResponseDtoTest.java
 src/test/java/com/cashful/model/AnalyticsResponseDtoTest.java
 src/test/java/com/cashful/model/AnalyticsSummaryDtoTest.java
 src/test/java/com/cashful/model/ApiKeyTest.java
+src/test/java/com/cashful/model/BadRequestResponseDtoTest.java
 src/test/java/com/cashful/model/BalanceHistoryResponseDtoTest.java
 src/test/java/com/cashful/model/BalanceTransactionDtoTest.java
 src/test/java/com/cashful/model/BanUserDtoTest.java
@@ -560,10 +577,10 @@ src/test/java/com/cashful/model/DeleteOrganizationDtoTest.java
 src/test/java/com/cashful/model/DeleteOrganizationResponseDtoTest.java
 src/test/java/com/cashful/model/DeleteUserDtoTest.java
 src/test/java/com/cashful/model/DeleteUserResponseDtoTest.java
-src/test/java/com/cashful/model/ErrorResponseDtoTest.java
 src/test/java/com/cashful/model/EventResponseDtoTest.java
 src/test/java/com/cashful/model/EvervaultEncryptedCardDtoTest.java
 src/test/java/com/cashful/model/FileDtoTest.java
+src/test/java/com/cashful/model/ForbiddenResponseDtoTest.java
 src/test/java/com/cashful/model/ForgotPasswordDtoTest.java
 src/test/java/com/cashful/model/ForgotPasswordResponseDtoTest.java
 src/test/java/com/cashful/model/GetAccessTokenDtoTest.java
@@ -578,11 +595,13 @@ src/test/java/com/cashful/model/GetJsonWebTokenResponseDtoTest.java
 src/test/java/com/cashful/model/GetSessionResponseDtoTest.java
 src/test/java/com/cashful/model/HasPermissionDtoTest.java
 src/test/java/com/cashful/model/HasPermissionResponseDtoTest.java
+src/test/java/com/cashful/model/HostedCheckoutConfigDtoTest.java
 src/test/java/com/cashful/model/IVeriHealthCheckResponseDtoTest.java
 src/test/java/com/cashful/model/ImpersonateUserDtoTest.java
 src/test/java/com/cashful/model/ImpersonateUserResponseDtoTest.java
 src/test/java/com/cashful/model/InitiatePaymentDtoTest.java
 src/test/java/com/cashful/model/InitiatePaymentResponseDtoTest.java
+src/test/java/com/cashful/model/InternalServerErrorResponseDtoTest.java
 src/test/java/com/cashful/model/InvitationDtoTest.java
 src/test/java/com/cashful/model/InviteMemberDtoTest.java
 src/test/java/com/cashful/model/InviteMemberResponseDtoTest.java
@@ -619,6 +638,7 @@ src/test/java/com/cashful/model/ListWebhookEndpointsResponseDtoTest.java
 src/test/java/com/cashful/model/MemberDtoTest.java
 src/test/java/com/cashful/model/MerchantBalanceResponseDtoTest.java
 src/test/java/com/cashful/model/MetricStatsDtoTest.java
+src/test/java/com/cashful/model/NotFoundResponseDtoTest.java
 src/test/java/com/cashful/model/NotificationDtoTest.java
 src/test/java/com/cashful/model/OrganizationComplianceResponseDtoTest.java
 src/test/java/com/cashful/model/OrganizationDtoTest.java
@@ -647,6 +667,7 @@ src/test/java/com/cashful/model/ResetPasswordDtoTest.java
 src/test/java/com/cashful/model/ResetPasswordResponseDtoTest.java
 src/test/java/com/cashful/model/ResetPhonePasswordDtoTest.java
 src/test/java/com/cashful/model/ResetPhonePasswordResponseDtoTest.java
+src/test/java/com/cashful/model/RetrieveMultipleProductsDtoTest.java
 src/test/java/com/cashful/model/RevokeSessionDtoTest.java
 src/test/java/com/cashful/model/RevokeSessionResponseDtoTest.java
 src/test/java/com/cashful/model/SendEmail200ResponseTest.java
@@ -674,6 +695,7 @@ src/test/java/com/cashful/model/SocialSignInDtoTest.java
 src/test/java/com/cashful/model/StopImpersonatingResponseDtoTest.java
 src/test/java/com/cashful/model/TimeframeMetricsDtoTest.java
 src/test/java/com/cashful/model/TransferResponseDtoTest.java
+src/test/java/com/cashful/model/UnauthorizedResponseDtoTest.java
 src/test/java/com/cashful/model/UnbanUserDtoTest.java
 src/test/java/com/cashful/model/UnbanUserResponseDtoTest.java
 src/test/java/com/cashful/model/UnlinkAccountDtoTest.java
@@ -681,6 +703,8 @@ src/test/java/com/cashful/model/UnlinkAccountResponseDtoTest.java
 src/test/java/com/cashful/model/UpdateApiKeyDtoTest.java
 src/test/java/com/cashful/model/UpdateApiKeyResponseDtoTest.java
 src/test/java/com/cashful/model/UpdateBalanceDtoTest.java
+src/test/java/com/cashful/model/UpdateCheckoutSessionDtoTest.java
+src/test/java/com/cashful/model/UpdateCheckoutSessionResponseDtoTest.java
 src/test/java/com/cashful/model/UpdateCustomerDtoTest.java
 src/test/java/com/cashful/model/UpdateMemberRoleDtoTest.java
 src/test/java/com/cashful/model/UpdateMemberRoleResponseDtoTest.java

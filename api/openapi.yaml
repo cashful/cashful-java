@@ -6,7 +6,7 @@ info:
     url: https://cashful.africa
   description: Developer documentation for the Cashful platform.
   title: Cashful API
-  version: 0.7.0
+  version: 0.8.0
 servers:
 - description: Live
   url: https://api.cashful.africa
@@ -73,13 +73,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/BadRequestResponseDto"
           description: Bad Request - Invalid input
         "500":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/InternalServerErrorResponseDto"
           description: Internal server error
       summary: Sign up with email
       tags:
@@ -109,13 +109,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/BadRequestResponseDto"
           description: Bad Request - Invalid input
         "500":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/InternalServerErrorResponseDto"
           description: Internal server error
       summary: Sign in with social provider
       tags:
@@ -145,13 +145,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/BadRequestResponseDto"
           description: Bad Request - Invalid input
         "500":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/InternalServerErrorResponseDto"
           description: Internal server error
       summary: Sign in with email
       tags:
@@ -181,13 +181,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/UnauthorizedResponseDto"
           description: Unauthorized
         "500":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/InternalServerErrorResponseDto"
           description: Internal server error
       security:
       - bearer: []
@@ -213,13 +213,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/UnauthorizedResponseDto"
           description: Unauthorized
         "500":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/InternalServerErrorResponseDto"
           description: Internal server error
       security:
       - bearer: []
@@ -244,13 +244,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/UnauthorizedResponseDto"
           description: Unauthorized
         "500":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/InternalServerErrorResponseDto"
           description: Internal server error
       security:
       - bearer: []
@@ -275,13 +275,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/UnauthorizedResponseDto"
           description: Unauthorized
         "500":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/InternalServerErrorResponseDto"
           description: Internal server error
       security:
       - bearer: []
@@ -312,13 +312,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/BadRequestResponseDto"
           description: Bad Request - Invalid input
         "500":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/InternalServerErrorResponseDto"
           description: Internal server error
       summary: Forget Password
       tags:
@@ -348,13 +348,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/BadRequestResponseDto"
           description: Bad Request - Invalid input
         "500":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/InternalServerErrorResponseDto"
           description: Internal server error
       summary: Reset Password
       tags:
@@ -384,19 +384,19 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/BadRequestResponseDto"
           description: Bad Request - Invalid input
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/UnauthorizedResponseDto"
           description: Unauthorized
         "500":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/InternalServerErrorResponseDto"
           description: Internal server error
       security:
       - bearer: []
@@ -433,13 +433,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/UnauthorizedResponseDto"
           description: Unauthorized
         "500":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/InternalServerErrorResponseDto"
           description: Internal server error
       security:
       - bearer: []
@@ -473,13 +473,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/UnauthorizedResponseDto"
           description: Unauthorized
         "500":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/InternalServerErrorResponseDto"
           description: Internal server error
       security:
       - bearer: []
@@ -513,13 +513,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/UnauthorizedResponseDto"
           description: Unauthorized
         "500":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/InternalServerErrorResponseDto"
           description: Internal server error
       security:
       - bearer: []
@@ -553,13 +553,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/UnauthorizedResponseDto"
           description: Unauthorized
         "500":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/InternalServerErrorResponseDto"
           description: Internal server error
       security:
       - bearer: []
@@ -593,13 +593,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/UnauthorizedResponseDto"
           description: Unauthorized
         "500":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/InternalServerErrorResponseDto"
           description: Internal server error
       security:
       - bearer: []
@@ -630,19 +630,19 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/BadRequestResponseDto"
           description: Bad Request - Invalid input
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/UnauthorizedResponseDto"
           description: Unauthorized
         "500":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/InternalServerErrorResponseDto"
           description: Internal server error
       security:
       - bearer: []
@@ -674,19 +674,19 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/BadRequestResponseDto"
           description: Bad Request - Invalid input
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/UnauthorizedResponseDto"
           description: Unauthorized
         "500":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/InternalServerErrorResponseDto"
           description: Internal server error
       security:
       - bearer: []
@@ -721,13 +721,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/UnauthorizedResponseDto"
           description: Unauthorized
         "500":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/InternalServerErrorResponseDto"
           description: Internal server error
       security:
       - bearer: []
@@ -761,13 +761,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/UnauthorizedResponseDto"
           description: Unauthorized
         "500":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/InternalServerErrorResponseDto"
           description: Internal server error
       security:
       - bearer: []
@@ -801,13 +801,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/UnauthorizedResponseDto"
           description: Unauthorized
         "500":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/InternalServerErrorResponseDto"
           description: Internal server error
       security:
       - bearer: []
@@ -838,19 +838,19 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/BadRequestResponseDto"
           description: Bad Request - Invalid input
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/UnauthorizedResponseDto"
           description: Unauthorized
         "500":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/InternalServerErrorResponseDto"
           description: Internal server error
       security:
       - bearer: []
@@ -882,19 +882,19 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/BadRequestResponseDto"
           description: Bad Request - Invalid input
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/UnauthorizedResponseDto"
           description: Unauthorized
         "500":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/InternalServerErrorResponseDto"
           description: Internal server error
       security:
       - bearer: []
@@ -926,19 +926,19 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/BadRequestResponseDto"
           description: Bad Request - Invalid input
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/UnauthorizedResponseDto"
           description: Unauthorized
         "500":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/InternalServerErrorResponseDto"
           description: Internal server error
       security:
       - bearer: []
@@ -970,19 +970,19 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/BadRequestResponseDto"
           description: Bad Request - Invalid input
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/UnauthorizedResponseDto"
           description: Unauthorized
         "500":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/InternalServerErrorResponseDto"
           description: Internal server error
       security:
       - bearer: []
@@ -1014,19 +1014,19 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/BadRequestResponseDto"
           description: Bad Request - Invalid input
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/UnauthorizedResponseDto"
           description: Unauthorized
         "500":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/InternalServerErrorResponseDto"
           description: Internal server error
       security:
       - bearer: []
@@ -1058,19 +1058,19 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/BadRequestResponseDto"
           description: Bad Request - Invalid input
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/UnauthorizedResponseDto"
           description: Unauthorized
         "500":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/InternalServerErrorResponseDto"
           description: Internal server error
       security:
       - bearer: []
@@ -1102,19 +1102,19 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/BadRequestResponseDto"
           description: Bad Request - Invalid input
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/UnauthorizedResponseDto"
           description: Unauthorized
         "500":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/InternalServerErrorResponseDto"
           description: Internal server error
       security:
       - bearer: []
@@ -1146,19 +1146,19 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/BadRequestResponseDto"
           description: Bad Request - Invalid input
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/UnauthorizedResponseDto"
           description: Unauthorized
         "500":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/InternalServerErrorResponseDto"
           description: Internal server error
       security:
       - bearer: []
@@ -1190,19 +1190,19 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/BadRequestResponseDto"
           description: Bad Request - Invalid input
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/UnauthorizedResponseDto"
           description: Unauthorized
         "500":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/InternalServerErrorResponseDto"
           description: Internal server error
       security:
       - bearer: []
@@ -1234,19 +1234,19 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/BadRequestResponseDto"
           description: Bad Request - Invalid input
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/UnauthorizedResponseDto"
           description: Unauthorized
         "500":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/InternalServerErrorResponseDto"
           description: Internal server error
       security:
       - bearer: []
@@ -1278,19 +1278,19 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/BadRequestResponseDto"
           description: Bad Request - Invalid input
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/UnauthorizedResponseDto"
           description: Unauthorized
         "500":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/InternalServerErrorResponseDto"
           description: Internal server error
       security:
       - bearer: []
@@ -1316,13 +1316,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/UnauthorizedResponseDto"
           description: Unauthorized
         "500":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/InternalServerErrorResponseDto"
           description: Internal server error
       security:
       - bearer: []
@@ -1353,19 +1353,19 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/BadRequestResponseDto"
           description: Bad Request - Invalid input
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/UnauthorizedResponseDto"
           description: Unauthorized
         "500":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/InternalServerErrorResponseDto"
           description: Internal server error
       security:
       - bearer: []
@@ -1397,19 +1397,19 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/BadRequestResponseDto"
           description: Bad Request - Invalid input
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/UnauthorizedResponseDto"
           description: Unauthorized
         "500":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/InternalServerErrorResponseDto"
           description: Internal server error
       security:
       - bearer: []
@@ -1441,13 +1441,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/BadRequestResponseDto"
           description: Bad Request - Invalid input
         "500":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/InternalServerErrorResponseDto"
           description: Internal server error
       summary: Verify API Key
       tags:
@@ -1480,19 +1480,19 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/BadRequestResponseDto"
           description: Bad Request - Invalid input
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/UnauthorizedResponseDto"
           description: Unauthorized
         "500":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/InternalServerErrorResponseDto"
           description: Internal server error
       security:
       - bearer: []
@@ -1535,13 +1535,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/BadRequestResponseDto"
           description: Bad Request - Invalid input
         "500":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/InternalServerErrorResponseDto"
           description: Internal server error
       summary: Verify Email
       tags:
@@ -1570,13 +1570,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/BadRequestResponseDto"
           description: Bad Request - Invalid input
         "500":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/InternalServerErrorResponseDto"
           description: Internal server error
       summary: Send Verification Email
       tags:
@@ -1606,19 +1606,19 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/BadRequestResponseDto"
           description: Bad Request - Invalid input
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/UnauthorizedResponseDto"
           description: Unauthorized
         "500":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/InternalServerErrorResponseDto"
           description: Internal server error
       security:
       - bearer: []
@@ -1650,19 +1650,19 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/BadRequestResponseDto"
           description: Bad Request - Invalid input
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/UnauthorizedResponseDto"
           description: Unauthorized
         "500":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/InternalServerErrorResponseDto"
           description: Internal server error
       security:
       - bearer: []
@@ -1694,19 +1694,19 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/BadRequestResponseDto"
           description: Bad Request - Invalid input
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/UnauthorizedResponseDto"
           description: Unauthorized
         "500":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/InternalServerErrorResponseDto"
           description: Internal server error
       security:
       - bearer: []
@@ -1738,19 +1738,19 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/BadRequestResponseDto"
           description: Bad Request - Invalid input
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/UnauthorizedResponseDto"
           description: Unauthorized
         "500":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/InternalServerErrorResponseDto"
           description: Internal server error
       security:
       - bearer: []
@@ -1782,13 +1782,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/BadRequestResponseDto"
           description: Bad Request - Invalid input
         "500":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/InternalServerErrorResponseDto"
           description: Internal server error
       summary: Request Password Reset
       tags:
@@ -1828,13 +1828,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/BadRequestResponseDto"
           description: Bad Request - Invalid input
         "500":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/InternalServerErrorResponseDto"
           description: Internal server error
       summary: Reset Password Callback
       tags:
@@ -1857,13 +1857,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/UnauthorizedResponseDto"
           description: Unauthorized
         "500":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/InternalServerErrorResponseDto"
           description: Internal server error
       security:
       - bearer: []
@@ -1894,19 +1894,19 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/BadRequestResponseDto"
           description: Bad Request - Invalid input
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/UnauthorizedResponseDto"
           description: Unauthorized
         "500":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/InternalServerErrorResponseDto"
           description: Internal server error
       security:
       - bearer: []
@@ -1932,19 +1932,19 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/BadRequestResponseDto"
           description: Bad Request - Invalid input
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/UnauthorizedResponseDto"
           description: Unauthorized
         "500":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/InternalServerErrorResponseDto"
           description: Internal server error
       security:
       - bearer: []
@@ -1969,19 +1969,19 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/BadRequestResponseDto"
           description: Bad Request - Invalid input
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/UnauthorizedResponseDto"
           description: Unauthorized
         "500":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/InternalServerErrorResponseDto"
           description: Internal server error
       security:
       - bearer: []
@@ -2006,25 +2006,25 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/BadRequestResponseDto"
           description: Bad Request - Invalid input
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/UnauthorizedResponseDto"
           description: Unauthorized
         "404":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/NotFoundResponseDto"
           description: Resource not found
         "500":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/InternalServerErrorResponseDto"
           description: Internal server error
       summary: Health Check
       tags:
@@ -2053,13 +2053,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/BadRequestResponseDto"
           description: Bad Request - Invalid input
         "500":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/InternalServerErrorResponseDto"
           description: Internal server error
       summary: Check Username Availability
       tags:
@@ -2089,19 +2089,19 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/BadRequestResponseDto"
           description: Bad Request - Invalid input
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/UnauthorizedResponseDto"
           description: Unauthorized
         "500":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/InternalServerErrorResponseDto"
           description: Internal server error
       security:
       - bearer: []
@@ -2133,19 +2133,19 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/BadRequestResponseDto"
           description: Bad Request - Invalid input
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/UnauthorizedResponseDto"
           description: Unauthorized
         "500":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/InternalServerErrorResponseDto"
           description: Internal server error
       security:
       - bearer: []
@@ -2171,13 +2171,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/UnauthorizedResponseDto"
           description: Unauthorized
         "500":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/InternalServerErrorResponseDto"
           description: Internal server error
       security:
       - bearer: []
@@ -2208,19 +2208,19 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/BadRequestResponseDto"
           description: Bad Request - Invalid input
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/UnauthorizedResponseDto"
           description: Unauthorized
         "500":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/InternalServerErrorResponseDto"
           description: Internal server error
       security:
       - bearer: []
@@ -2252,19 +2252,19 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/BadRequestResponseDto"
           description: Bad Request - Invalid input
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/UnauthorizedResponseDto"
           description: Unauthorized
         "500":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/InternalServerErrorResponseDto"
           description: Internal server error
       security:
       - bearer: []
@@ -2296,13 +2296,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/BadRequestResponseDto"
           description: Bad Request - Invalid input
         "500":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/InternalServerErrorResponseDto"
           description: Internal server error
       summary: Sign in with Phone Number
       tags:
@@ -2332,13 +2332,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/BadRequestResponseDto"
           description: Bad Request - Invalid input
         "500":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/InternalServerErrorResponseDto"
           description: Internal server error
       summary: Send OTP to Phone
       tags:
@@ -2368,13 +2368,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/BadRequestResponseDto"
           description: Bad Request - Invalid input
         "500":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/InternalServerErrorResponseDto"
           description: Internal server error
       summary: Verify Phone Number
       tags:
@@ -2404,13 +2404,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/BadRequestResponseDto"
           description: Bad Request - Invalid input
         "500":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/InternalServerErrorResponseDto"
           description: Internal server error
       summary: Request Password Reset via Phone
       tags:
@@ -2440,13 +2440,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/BadRequestResponseDto"
           description: Bad Request - Invalid input
         "500":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/InternalServerErrorResponseDto"
           description: Internal server error
       summary: Reset Password with Phone
       tags:
@@ -2548,25 +2548,25 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/BadRequestResponseDto"
           description: Bad Request - Invalid input
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/UnauthorizedResponseDto"
           description: Unauthorized
         "404":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/NotFoundResponseDto"
           description: Resource not found
         "500":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/InternalServerErrorResponseDto"
           description: Internal server error
       security:
       - bearer: []
@@ -2621,19 +2621,19 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/BadRequestResponseDto"
           description: Bad Request - Invalid input
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/UnauthorizedResponseDto"
           description: Unauthorized
         "500":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/InternalServerErrorResponseDto"
           description: Internal server error
       security:
       - bearer: []
@@ -2690,13 +2690,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/NotFoundResponseDto"
           description: Resource not found
         "500":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/InternalServerErrorResponseDto"
           description: Internal server error
       security:
       - bearer: []
@@ -2740,25 +2740,25 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/BadRequestResponseDto"
           description: Bad Request - Invalid input
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/UnauthorizedResponseDto"
           description: Unauthorized
         "404":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/NotFoundResponseDto"
           description: Resource not found
         "500":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/InternalServerErrorResponseDto"
           description: Internal server error
       security:
       - bearer: []
@@ -2874,25 +2874,25 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/BadRequestResponseDto"
           description: Bad Request - Invalid input
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/UnauthorizedResponseDto"
           description: Unauthorized
         "404":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/NotFoundResponseDto"
           description: Resource not found
         "500":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/InternalServerErrorResponseDto"
           description: Internal server error
       security:
       - bearer: []
@@ -2975,25 +2975,25 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/BadRequestResponseDto"
           description: Bad Request - Invalid input
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/UnauthorizedResponseDto"
           description: Unauthorized
         "404":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/NotFoundResponseDto"
           description: Resource not found
         "500":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/InternalServerErrorResponseDto"
           description: Internal server error
       security:
       - bearer: []
@@ -3036,13 +3036,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/BadRequestResponseDto"
           description: Bad Request - Invalid input
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/UnauthorizedResponseDto"
           description: Unauthorized
         "409":
           description: Customer with this email already exists
@@ -3050,7 +3050,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/InternalServerErrorResponseDto"
           description: Internal server error
       security:
       - bearer: []
@@ -3095,19 +3095,19 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/UnauthorizedResponseDto"
           description: Unauthorized
         "404":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/NotFoundResponseDto"
           description: Resource not found
         "500":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/InternalServerErrorResponseDto"
           description: Internal server error
       security:
       - bearer: []
@@ -3157,19 +3157,19 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/BadRequestResponseDto"
           description: Bad Request - Invalid input
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/UnauthorizedResponseDto"
           description: Unauthorized
         "404":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/NotFoundResponseDto"
           description: Resource not found
         "409":
           description: Email already in use by another customer
@@ -3177,7 +3177,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/InternalServerErrorResponseDto"
           description: Internal server error
       security:
       - bearer: []
@@ -3221,19 +3221,19 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/UnauthorizedResponseDto"
           description: Unauthorized
         "404":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/NotFoundResponseDto"
           description: Resource not found
         "500":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/InternalServerErrorResponseDto"
           description: Internal server error
       security:
       - bearer: []
@@ -3312,19 +3312,19 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/UnauthorizedResponseDto"
           description: Unauthorized
         "404":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/NotFoundResponseDto"
           description: Resource not found
         "500":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/InternalServerErrorResponseDto"
           description: Internal server error
       security:
       - bearer: []
@@ -3390,19 +3390,19 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/UnauthorizedResponseDto"
           description: Unauthorized
         "404":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/NotFoundResponseDto"
           description: Resource not found
         "500":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/InternalServerErrorResponseDto"
           description: Internal server error
       security:
       - bearer: []
@@ -3547,25 +3547,25 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/BadRequestResponseDto"
           description: Bad Request - Invalid input
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/UnauthorizedResponseDto"
           description: Unauthorized
         "404":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/NotFoundResponseDto"
           description: Resource not found
         "500":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/InternalServerErrorResponseDto"
           description: Internal server error
       security:
       - bearer: []
@@ -3675,13 +3675,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/UnauthorizedResponseDto"
           description: Unauthorized
         "500":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/InternalServerErrorResponseDto"
           description: Internal server error
       security:
       - bearer: []
@@ -3730,13 +3730,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/BadRequestResponseDto"
           description: Bad Request - Invalid input
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/UnauthorizedResponseDto"
           description: Unauthorized
         "402":
           description: Payment declined
@@ -3744,13 +3744,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/NotFoundResponseDto"
           description: Resource not found
         "500":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/InternalServerErrorResponseDto"
           description: Internal server error
       security:
       - bearer: []
@@ -3801,19 +3801,19 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/UnauthorizedResponseDto"
           description: Unauthorized
         "404":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/NotFoundResponseDto"
           description: Resource not found
         "500":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/InternalServerErrorResponseDto"
           description: Internal server error
       security:
       - bearer: []
@@ -3847,25 +3847,25 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/BadRequestResponseDto"
           description: Bad Request - Invalid input
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/UnauthorizedResponseDto"
           description: Unauthorized
         "404":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/NotFoundResponseDto"
           description: Resource not found
         "500":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/InternalServerErrorResponseDto"
           description: Internal server error
       security:
       - bearer: []
@@ -3898,25 +3898,25 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/BadRequestResponseDto"
           description: Bad Request - Invalid input
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/UnauthorizedResponseDto"
           description: Unauthorized
         "404":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/NotFoundResponseDto"
           description: Resource not found
         "500":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/InternalServerErrorResponseDto"
           description: Internal server error
       security:
       - bearer: []
@@ -3970,15 +3970,21 @@ paths:
               example:
                 data:
                 - id: plink_001
+                  name: Summer Sale Link
+                  description: Payment link for the summer sale campaign
                   merchantId: merchant_456
                   url: https://checkout.cashful.africa/plink_001
-                  productId: product_001
-                  amount: 15000
+                  totalAmount: 15000
                   currency: ZAR
                   mode: payment
                   active: true
                   successUrl: https://example.com/success
                   cancelUrl: https://example.com/cancel
+                  lineItems:
+                  - name: Product A
+                    amount: 15000
+                    quantity: 1
+                    currency: ZAR
                   metadata:
                     campaign: summer_sale
                   createdAt: 2025-01-15T10:30:00.000Z
@@ -3996,25 +4002,25 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/BadRequestResponseDto"
           description: Bad Request - Invalid input
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/UnauthorizedResponseDto"
           description: Unauthorized
         "404":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/NotFoundResponseDto"
           description: Resource not found
         "500":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/InternalServerErrorResponseDto"
           description: Internal server error
       security:
       - bearer: []
@@ -4041,15 +4047,21 @@ paths:
             application/json:
               example:
                 id: plink_001
+                name: Summer Sale Link
+                description: Payment link for the summer sale campaign
                 merchantId: merchant_456
                 url: https://checkout.cashful.africa/plink_001
-                productId: product_001
-                amount: 15000
+                totalAmount: 15000
                 currency: ZAR
                 mode: payment
                 active: true
                 successUrl: https://example.com/success
                 cancelUrl: https://example.com/cancel
+                lineItems:
+                - name: Product A
+                  amount: 15000
+                  quantity: 1
+                  currency: ZAR
                 metadata:
                   campaign: summer_sale
                 createdAt: 2025-01-15T10:30:00.000Z
@@ -4062,19 +4074,19 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/BadRequestResponseDto"
           description: Bad Request - Invalid input
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/UnauthorizedResponseDto"
           description: Unauthorized
         "500":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/InternalServerErrorResponseDto"
           description: Internal server error
       security:
       - bearer: []
@@ -4103,15 +4115,21 @@ paths:
             application/json:
               example:
                 id: plink_001
+                name: Summer Sale Link
+                description: Payment link for the summer sale campaign
                 merchantId: merchant_456
                 url: https://checkout.cashful.africa/plink_001
-                productId: product_001
-                amount: 15000
+                totalAmount: 15000
                 currency: ZAR
                 mode: payment
                 active: true
                 successUrl: https://example.com/success
                 cancelUrl: https://example.com/cancel
+                lineItems:
+                - name: Product A
+                  amount: 15000
+                  quantity: 1
+                  currency: ZAR
                 metadata:
                   campaign: summer_sale
                 createdAt: 2025-01-15T10:30:00.000Z
@@ -4124,13 +4142,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/NotFoundResponseDto"
           description: Resource not found
         "500":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/InternalServerErrorResponseDto"
           description: Internal server error
       security:
       - bearer: []
@@ -4165,15 +4183,21 @@ paths:
               schema:
                 example:
                   id: plink_001
+                  name: Summer Sale Link
+                  description: Payment link for the summer sale campaign
                   merchantId: merchant_456
                   url: https://checkout.cashful.africa/plink_001
-                  productId: product_001
-                  amount: 15000
+                  totalAmount: 15000
                   currency: ZAR
                   mode: payment
                   active: false
                   successUrl: https://example.com/success
                   cancelUrl: https://example.com/cancel
+                  lineItems:
+                  - name: Product A
+                    amount: 15000
+                    quantity: 1
+                    currency: ZAR
                   metadata:
                     campaign: summer_sale
                   createdAt: 2025-01-15T10:30:00.000Z
@@ -4184,25 +4208,25 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/BadRequestResponseDto"
           description: Bad Request - Invalid input
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/UnauthorizedResponseDto"
           description: Unauthorized
         "404":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/NotFoundResponseDto"
           description: Resource not found
         "500":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/InternalServerErrorResponseDto"
           description: Internal server error
       security:
       - bearer: []
@@ -4239,19 +4263,19 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/UnauthorizedResponseDto"
           description: Unauthorized
         "404":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/NotFoundResponseDto"
           description: Resource not found
         "500":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/InternalServerErrorResponseDto"
           description: Internal server error
       security:
       - bearer: []
@@ -4297,19 +4321,19 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/UnauthorizedResponseDto"
           description: Unauthorized
         "404":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/NotFoundResponseDto"
           description: Resource not found
         "500":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/InternalServerErrorResponseDto"
           description: Internal server error
       security:
       - bearer: []
@@ -4400,13 +4424,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/UnauthorizedResponseDto"
           description: Unauthorized
         "500":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/InternalServerErrorResponseDto"
           description: Internal server error
       security:
       - bearer: []
@@ -4500,25 +4524,25 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/BadRequestResponseDto"
           description: Bad Request - Invalid input
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/UnauthorizedResponseDto"
           description: Unauthorized
         "404":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/NotFoundResponseDto"
           description: Resource not found
         "500":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/InternalServerErrorResponseDto"
           description: Internal server error
       security:
       - bearer: []
@@ -4565,19 +4589,19 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/BadRequestResponseDto"
           description: Bad Request - Invalid input
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/UnauthorizedResponseDto"
           description: Unauthorized
         "500":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/InternalServerErrorResponseDto"
           description: Internal server error
       security:
       - bearer: []
@@ -4622,23 +4646,29 @@ paths:
               schema:
                 $ref: "#/components/schemas/ProductResponseDto"
           description: Successfully retrieved product
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/BadRequestResponseDto"
+          description: Bad Request - Invalid input
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/UnauthorizedResponseDto"
           description: Unauthorized
         "404":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/NotFoundResponseDto"
           description: Resource not found
         "500":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/InternalServerErrorResponseDto"
           description: Internal server error
       security:
       - bearer: []
@@ -4692,29 +4722,98 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/BadRequestResponseDto"
           description: Bad Request - Invalid input
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/UnauthorizedResponseDto"
           description: Unauthorized
         "404":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/NotFoundResponseDto"
           description: Resource not found
         "500":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/InternalServerErrorResponseDto"
           description: Internal server error
       security:
       - bearer: []
       summary: Update Product
+      tags:
+      - Products
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /api/canary/products/multiple:
+    post:
+      description: Retrieves multiple products using the provided ID's with a maximum
+        of 50 IDs.
+      operationId: retrieveMultipleProducts
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/RetrieveMultipleProductsDto"
+        description: List of product IDs
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              example:
+              - id: product_001
+                merchantId: merchant_456
+                name: Airtime
+                description: Mobile phone airtime
+                amount: 5000
+                currency: ZAR
+                active: true
+                imageId: file_abc123xyz
+                imageUrl: https://my-bucket.s3.af-south-1.amazonaws.com/merchant_123/1736951234567-a1b2c3-airtime.png
+                metadata:
+                  category: telecom
+                  provider: vodacom
+                createdAt: 2025-01-15T10:30:00.000Z
+                updatedAt: 2025-01-15T10:30:00.000Z
+              schema:
+                items:
+                  $ref: "#/components/schemas/ProductResponseDto"
+                type: array
+          description: Successfully retrieved products
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/BadRequestResponseDto"
+          description: Bad Request - Invalid input
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UnauthorizedResponseDto"
+          description: Unauthorized
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/NotFoundResponseDto"
+          description: Resource not found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/InternalServerErrorResponseDto"
+          description: Internal server error
+      security:
+      - bearer: []
+      summary: Retrieve Multiple Products by ID
       tags:
       - Products
       x-content-type: application/json
@@ -4797,25 +4896,25 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/BadRequestResponseDto"
           description: Bad Request - Invalid input
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/UnauthorizedResponseDto"
           description: Unauthorized
         "404":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/NotFoundResponseDto"
           description: Resource not found
         "500":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/InternalServerErrorResponseDto"
           description: Internal server error
       security:
       - bearer: []
@@ -4858,13 +4957,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/BadRequestResponseDto"
           description: Bad Request - Invalid input
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/UnauthorizedResponseDto"
           description: Unauthorized
         "402":
           description: Insufficient merchant balance
@@ -4872,7 +4971,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/InternalServerErrorResponseDto"
           description: Internal server error
       security:
       - bearer: []
@@ -4942,13 +5041,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/UnauthorizedResponseDto"
           description: Unauthorized
         "500":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/InternalServerErrorResponseDto"
           description: Internal server error
       security:
       - bearer: []
@@ -4991,13 +5090,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/BadRequestResponseDto"
           description: Bad Request - Invalid input
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/UnauthorizedResponseDto"
           description: Unauthorized
         "402":
           description: Insufficient sender balance
@@ -5005,13 +5104,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/NotFoundResponseDto"
           description: Resource not found
         "500":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/InternalServerErrorResponseDto"
           description: Internal server error
       security:
       - bearer: []
@@ -5057,13 +5156,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/BadRequestResponseDto"
           description: Bad Request - Invalid input
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/UnauthorizedResponseDto"
           description: Unauthorized
         "402":
           description: Insufficient customer balance
@@ -5071,13 +5170,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/NotFoundResponseDto"
           description: Resource not found
         "500":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/InternalServerErrorResponseDto"
           description: Internal server error
       security:
       - bearer: []
@@ -5148,25 +5247,25 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/BadRequestResponseDto"
           description: Bad Request - Invalid input
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/UnauthorizedResponseDto"
           description: Unauthorized
         "404":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/NotFoundResponseDto"
           description: Resource not found
         "500":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/InternalServerErrorResponseDto"
           description: Internal server error
       security:
       - bearer: []
@@ -5212,19 +5311,19 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/BadRequestResponseDto"
           description: Bad Request - Invalid input
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/UnauthorizedResponseDto"
           description: Unauthorized
         "500":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/InternalServerErrorResponseDto"
           description: Internal server error
       security:
       - bearer: []
@@ -5261,19 +5360,19 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/UnauthorizedResponseDto"
           description: Unauthorized
         "404":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/NotFoundResponseDto"
           description: Resource not found
         "500":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/InternalServerErrorResponseDto"
           description: Internal server error
       security:
       - bearer: []
@@ -5355,19 +5454,19 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/BadRequestResponseDto"
           description: Bad Request - Invalid input
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/UnauthorizedResponseDto"
           description: Unauthorized
         "500":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/InternalServerErrorResponseDto"
           description: Internal server error
       security:
       - bearer: []
@@ -5407,19 +5506,19 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/BadRequestResponseDto"
           description: Bad Request - Invalid input
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/UnauthorizedResponseDto"
           description: Unauthorized
         "500":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/InternalServerErrorResponseDto"
           description: Internal server error
       security:
       - bearer: []
@@ -5450,13 +5549,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/UnauthorizedResponseDto"
           description: Unauthorized
         "500":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/InternalServerErrorResponseDto"
           description: Internal server error
       security:
       - bearer: []
@@ -5485,19 +5584,19 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/BadRequestResponseDto"
           description: Bad Request - Invalid input
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/UnauthorizedResponseDto"
           description: Unauthorized
         "500":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/InternalServerErrorResponseDto"
           description: Internal server error
       security:
       - bearer: []
@@ -5531,25 +5630,25 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/BadRequestResponseDto"
           description: Bad Request - Invalid input
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/UnauthorizedResponseDto"
           description: Unauthorized
         "404":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/NotFoundResponseDto"
           description: Resource not found
         "500":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/InternalServerErrorResponseDto"
           description: Internal server error
       security:
       - bearer: []
@@ -5654,7 +5753,7 @@ paths:
       - application/json
   /api/canary/storage/upload-url:
     post:
-      operationId: StorageController_requestUploadUrl_canary
+      operationId: requestUploadUrl
       parameters: []
       requestBody:
         content:
@@ -5693,25 +5792,25 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/BadRequestResponseDto"
           description: Bad Request - Invalid input
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/UnauthorizedResponseDto"
           description: Unauthorized
         "404":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/NotFoundResponseDto"
           description: Resource not found
         "500":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/InternalServerErrorResponseDto"
           description: Internal server error
       security:
       - bearer: []
@@ -5723,7 +5822,7 @@ paths:
       - application/json
   /api/canary/storage/confirm-upload:
     post:
-      operationId: StorageController_confirmUpload_canary
+      operationId: confirmUpload
       parameters: []
       requestBody:
         content:
@@ -5770,25 +5869,25 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/BadRequestResponseDto"
           description: Bad Request - Invalid input
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/UnauthorizedResponseDto"
           description: Unauthorized
         "404":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/NotFoundResponseDto"
           description: Resource not found
         "500":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/InternalServerErrorResponseDto"
           description: Internal server error
       security:
       - bearer: []
@@ -5800,7 +5899,7 @@ paths:
       - application/json
   /api/canary/storage/{id}/download-url:
     get:
-      operationId: StorageController_getDownloadUrl_canary
+      operationId: getDownloadUrl
       parameters:
       - description: File ID
         explode: false
@@ -5827,25 +5926,25 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/BadRequestResponseDto"
           description: Bad Request - Invalid input
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/UnauthorizedResponseDto"
           description: Unauthorized
         "404":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/NotFoundResponseDto"
           description: Resource not found
         "500":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/InternalServerErrorResponseDto"
           description: Internal server error
       security:
       - bearer: []
@@ -5856,7 +5955,7 @@ paths:
       - application/json
   /api/canary/storage:
     get:
-      operationId: StorageController_list_canary
+      operationId: listFiles
       parameters:
       - description: Maximum number of records to return
         explode: true
@@ -5963,25 +6062,25 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/BadRequestResponseDto"
           description: Bad Request - Invalid input
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/UnauthorizedResponseDto"
           description: Unauthorized
         "404":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/NotFoundResponseDto"
           description: Resource not found
         "500":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/InternalServerErrorResponseDto"
           description: Internal server error
       security:
       - bearer: []
@@ -5992,7 +6091,7 @@ paths:
       - application/json
   /api/canary/storage/{id}:
     delete:
-      operationId: StorageController_delete_canary
+      operationId: deleteFile
       parameters:
       - description: File ID
         explode: false
@@ -6009,25 +6108,25 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/BadRequestResponseDto"
           description: Bad Request - Invalid input
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/UnauthorizedResponseDto"
           description: Unauthorized
         "404":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/NotFoundResponseDto"
           description: Resource not found
         "500":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/InternalServerErrorResponseDto"
           description: Internal server error
       security:
       - bearer: []
@@ -6037,7 +6136,7 @@ paths:
       x-accepts:
       - application/json
     get:
-      operationId: StorageController_retrieve_canary
+      operationId: getFileDetails
       parameters:
       - description: File ID
         explode: false
@@ -6079,25 +6178,25 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/BadRequestResponseDto"
           description: Bad Request - Invalid input
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/UnauthorizedResponseDto"
           description: Unauthorized
         "404":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/NotFoundResponseDto"
           description: Resource not found
         "500":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponseDto"
+                $ref: "#/components/schemas/InternalServerErrorResponseDto"
           description: Internal server error
       security:
       - bearer: []
@@ -6192,7 +6291,7 @@ components:
       required:
       - user
       type: object
-    ErrorResponseDto:
+    BadRequestResponseDto:
       example:
         message:
         - message
@@ -6211,6 +6310,31 @@ components:
         error:
           description: Error type
           example: Bad Request
+          type: string
+      required:
+      - error
+      - message
+      - statusCode
+      type: object
+    InternalServerErrorResponseDto:
+      example:
+        message:
+        - message
+        - message
+        error: Internal Server Error
+        statusCode: 500
+      properties:
+        statusCode:
+          description: HTTP status code
+          example: 500
+          type: number
+        message:
+          items:
+            type: string
+          type: array
+        error:
+          description: Error type
+          example: Internal Server Error
           type: string
       required:
       - error
@@ -6346,6 +6470,31 @@ components:
           type: boolean
       required:
       - success
+      type: object
+    UnauthorizedResponseDto:
+      example:
+        message:
+        - message
+        - message
+        error: Unauthorized
+        statusCode: 401
+      properties:
+        statusCode:
+          description: HTTP status code
+          example: 401
+          type: number
+        message:
+          items:
+            type: string
+          type: array
+        error:
+          description: Error type
+          example: Unauthorized
+          type: string
+      required:
+      - error
+      - message
+      - statusCode
       type: object
     SessionDto:
       example:
@@ -7650,6 +7799,31 @@ components:
       required:
       - success
       type: object
+    NotFoundResponseDto:
+      example:
+        message:
+        - message
+        - message
+        error: Not Found
+        statusCode: 404
+      properties:
+        statusCode:
+          description: HTTP status code
+          example: 404
+          type: number
+        message:
+          items:
+            type: string
+          type: array
+        error:
+          description: Error type
+          example: Not Found
+          type: string
+      required:
+      - error
+      - message
+      - statusCode
+      type: object
     IsUsernameAvailableDto:
       example:
         username: johndoe
@@ -7982,6 +8156,25 @@ components:
       required:
       - users
       type: object
+    ForbiddenResponseDto:
+      properties:
+        statusCode:
+          description: HTTP status code
+          example: 403
+          type: number
+        message:
+          items:
+            type: string
+          type: array
+        error:
+          description: Error type
+          example: Forbidden
+          type: string
+      required:
+      - error
+      - message
+      - statusCode
+      type: object
     BanUserDto:
       properties:
         userId:
@@ -8261,8 +8454,12 @@ components:
         amount: 6.027456183070403
         quantity: 0.8008281904610115
         productId: productId
+        name: name
         currency: currency
       properties:
+        name:
+          description: The name of the line item
+          type: string
         productId:
           description: The unique identifier of the product
           type: string
@@ -8279,18 +8476,54 @@ components:
       - amount
       - currency
       type: object
+    HostedCheckoutConfigDto:
+      properties:
+        merchantId:
+          description: Merchant ID
+          type: string
+        merchantAlias:
+          description: Merchant alias
+          type: string
+        merchantLegalName:
+          description: Merchant legal name
+          type: string
+        merchantAvatarTextPlaceholder:
+          description: Merchant avatar text placeholder
+          type: string
+        merchantAvatarUrl:
+          description: Merchant avatar URL
+          type: string
+        requireContact:
+          description: Require contact
+          type: boolean
+        requireAddress:
+          description: Require address
+          type: boolean
+        taxRate:
+          description: Tax rate
+          type: number
+        embedMode:
+          description: Embed mode
+          type: boolean
+        embedOrigin:
+          description: Embed origin
+          type: string
+      type: object
     CreateCheckoutSessionDto:
       example:
         lineItems:
         - amount: 6.027456183070403
           quantity: 0.8008281904610115
           productId: productId
+          name: name
           currency: currency
         - amount: 6.027456183070403
           quantity: 0.8008281904610115
           productId: productId
+          name: name
           currency: currency
         mode: mode
+        hostedCheckoutConfig: ""
         totalAmount: 0.8008281904610115
         cancelUrl: cancelUrl
         metadata:
@@ -8301,6 +8534,7 @@ components:
         customerId: customerId
         successUrl: successUrl
         currency: currency
+        failureUrl: failureUrl
       properties:
         merchantId:
           description: "The ID of the merchant whose balance is being requested. If\
@@ -8315,8 +8549,11 @@ components:
         successUrl:
           description: The URL to redirect to on successful payment
           type: string
+        failureUrl:
+          description: The URL to redirect to on failure
+          type: string
         cancelUrl:
-          description: The URL to redirect to if customer cancels
+          description: The URL to redirect to on cancel
           type: string
         lineItems:
           description: Array of line items for the checkout
@@ -8339,14 +8576,17 @@ components:
             orderId: ORD-12345
             source: web
           type: object
+        hostedCheckoutConfig:
+          allOf:
+          - $ref: "#/components/schemas/HostedCheckoutConfigDto"
+          description: Configuration for the hosted checkout page
       required:
-      - cancelUrl
       - currency
       - metadata
-      - successUrl
       type: object
     CheckoutSessionResponseDto:
       example:
+        hostedCheckoutConfig: ""
         metadata:
           orderId: ORD-12345
         successUrl: successUrl
@@ -8355,10 +8595,12 @@ components:
         - amount: 6.027456183070403
           quantity: 0.8008281904610115
           productId: productId
+          name: name
           currency: currency
         - amount: 6.027456183070403
           quantity: 0.8008281904610115
           productId: productId
+          name: name
           currency: currency
         mode: mode
         createdAt: 2000-01-23T04:56:07.000+00:00
@@ -8415,6 +8657,10 @@ components:
           example:
             orderId: ORD-12345
           type: object
+        hostedCheckoutConfig:
+          allOf:
+          - $ref: "#/components/schemas/HostedCheckoutConfigDto"
+          description: Configuration for the hosted checkout page
       required:
       - cancelUrl
       - createdAt
@@ -8464,7 +8710,8 @@ components:
           limit: 50
           hasMore: true
         data:
-        - metadata:
+        - hostedCheckoutConfig: ""
+          metadata:
             orderId: ORD-12345
           successUrl: successUrl
           expiresAt: 2000-01-23T04:56:07.000+00:00
@@ -8472,10 +8719,12 @@ components:
           - amount: 6.027456183070403
             quantity: 0.8008281904610115
             productId: productId
+            name: name
             currency: currency
           - amount: 6.027456183070403
             quantity: 0.8008281904610115
             productId: productId
+            name: name
             currency: currency
           mode: mode
           createdAt: 2000-01-23T04:56:07.000+00:00
@@ -8489,7 +8738,8 @@ components:
           id: id
           updatedAt: 2000-01-23T04:56:07.000+00:00
           status: status
-        - metadata:
+        - hostedCheckoutConfig: ""
+          metadata:
             orderId: ORD-12345
           successUrl: successUrl
           expiresAt: 2000-01-23T04:56:07.000+00:00
@@ -8497,10 +8747,12 @@ components:
           - amount: 6.027456183070403
             quantity: 0.8008281904610115
             productId: productId
+            name: name
             currency: currency
           - amount: 6.027456183070403
             quantity: 0.8008281904610115
             productId: productId
+            name: name
             currency: currency
           mode: mode
           createdAt: 2000-01-23T04:56:07.000+00:00
@@ -8524,6 +8776,61 @@ components:
       required:
       - data
       - pagination
+      type: object
+    UpdateCheckoutSessionDto:
+      properties:
+        status:
+          type: string
+        successUrl:
+          description: The URL to redirect to on successful payment
+          type: string
+        failureUrl:
+          description: The URL to redirect to on failure
+          type: string
+        cancelUrl:
+          description: The URL to redirect to on cancel
+          type: string
+        metadata:
+          additionalProperties: true
+          description: Optional custom metadata
+          example:
+            orderId: ORD-12345
+          type: object
+        hostedCheckoutConfig:
+          allOf:
+          - $ref: "#/components/schemas/HostedCheckoutConfigDto"
+          description: Configuration for the hosted checkout page
+      required:
+      - metadata
+      - status
+      type: object
+    UpdateCheckoutSessionResponseDto:
+      properties:
+        id:
+          description: Unique identifier
+          type: string
+        createdAt:
+          format: date-time
+          type: string
+        updatedAt:
+          format: date-time
+          type: string
+        deletedAt:
+          format: date-time
+          type: string
+        status:
+          type: string
+        metadata:
+          additionalProperties: true
+          example:
+            orderId: ORD-12345
+          type: object
+      required:
+      - createdAt
+      - id
+      - metadata
+      - status
+      - updatedAt
       type: object
     MerchantBalanceResponseDto:
       example:
@@ -9424,30 +9731,51 @@ components:
       type: object
     CreatePaymentLinkDto:
       example:
+        lineItems:
+        - amount: 6.027456183070403
+          quantity: 0.8008281904610115
+          productId: productId
+          name: name
+          currency: currency
+        - amount: 6.027456183070403
+          quantity: 0.8008281904610115
+          productId: productId
+          name: name
+          currency: currency
         mode: payment
-        amount: 0.8008281904610115
+        hostedCheckoutConfig: ""
+        totalAmount: 0.8008281904610115
         cancelUrl: cancelUrl
         metadata:
           orderId: "12345"
           customField: value
-        productId: productId
         merchantId: merchantId
+        name: name
         customerId: customerId
+        description: description
         successUrl: successUrl
         currency: currency
       properties:
+        name:
+          description: The name of the payment link
+          type: string
+        description:
+          description: A description of the payment link
+          type: string
         merchantId:
           description: "The ID of the merchant whose balance is being requested. If\
             \ omitted, defaults to the authenticated merchant."
           type: string
-        productId:
-          description: The unique identifier of the product
-          type: string
+        lineItems:
+          description: Array of line items for the checkout
+          items:
+            $ref: "#/components/schemas/LineItemDto"
+          type: array
         customerId:
           description: The unique identifier of the customer
           type: string
-        amount:
-          description: The amount in the smallest currency unit
+        totalAmount:
+          description: The total amount in the smallest currency unit
           type: number
         currency:
           description: The three-letter ISO 4217 currency code
@@ -9472,27 +9800,45 @@ components:
             orderId: "12345"
             customField: value
           type: object
+        hostedCheckoutConfig:
+          allOf:
+          - $ref: "#/components/schemas/HostedCheckoutConfigDto"
+          description: Configuration for the hosted checkout page
       required:
       - cancelUrl
       - currency
       - metadata
       - mode
       - successUrl
+      - totalAmount
       type: object
     PaymentLinkResponseDto:
       example:
-        amount: 0.8008281904610115
+        hostedCheckoutConfig: ""
         metadata:
           customField: value
-        productId: productId
+        description: description
         active: true
         successUrl: successUrl
         url: url
+        lineItems:
+        - amount: 6.027456183070403
+          quantity: 0.8008281904610115
+          productId: productId
+          name: name
+          currency: currency
+        - amount: 6.027456183070403
+          quantity: 0.8008281904610115
+          productId: productId
+          name: name
+          currency: currency
         mode: payment
+        totalAmount: 0.8008281904610115
         createdAt: 2000-01-23T04:56:07.000+00:00
         cancelUrl: cancelUrl
         deletedAt: 2000-01-23T04:56:07.000+00:00
         merchantId: merchantId
+        name: name
         customerId: customerId
         currency: currency
         id: id
@@ -9500,15 +9846,21 @@ components:
       properties:
         id:
           type: string
+        name:
+          type: string
+        description:
+          type: string
         merchantId:
           type: string
         url:
           type: string
-        productId:
-          type: string
+        lineItems:
+          items:
+            $ref: "#/components/schemas/LineItemDto"
+          type: array
         customerId:
           type: string
-        amount:
+        totalAmount:
           type: number
         currency:
           type: string
@@ -9529,6 +9881,10 @@ components:
           example:
             customField: value
           type: object
+        hostedCheckoutConfig:
+          allOf:
+          - $ref: "#/components/schemas/HostedCheckoutConfigDto"
+          description: Configuration for the hosted checkout page
         createdAt:
           format: date-time
           type: string
@@ -9548,6 +9904,7 @@ components:
       - metadata
       - mode
       - successUrl
+      - totalAmount
       - updatedAt
       - url
       type: object
@@ -9559,34 +9916,60 @@ components:
           limit: 50
           hasMore: true
         data:
-        - amount: 0.8008281904610115
+        - hostedCheckoutConfig: ""
           metadata:
             customField: value
-          productId: productId
+          description: description
           active: true
           successUrl: successUrl
           url: url
+          lineItems:
+          - amount: 6.027456183070403
+            quantity: 0.8008281904610115
+            productId: productId
+            name: name
+            currency: currency
+          - amount: 6.027456183070403
+            quantity: 0.8008281904610115
+            productId: productId
+            name: name
+            currency: currency
           mode: payment
+          totalAmount: 0.8008281904610115
           createdAt: 2000-01-23T04:56:07.000+00:00
           cancelUrl: cancelUrl
           deletedAt: 2000-01-23T04:56:07.000+00:00
           merchantId: merchantId
+          name: name
           customerId: customerId
           currency: currency
           id: id
           updatedAt: 2000-01-23T04:56:07.000+00:00
-        - amount: 0.8008281904610115
+        - hostedCheckoutConfig: ""
           metadata:
             customField: value
-          productId: productId
+          description: description
           active: true
           successUrl: successUrl
           url: url
+          lineItems:
+          - amount: 6.027456183070403
+            quantity: 0.8008281904610115
+            productId: productId
+            name: name
+            currency: currency
+          - amount: 6.027456183070403
+            quantity: 0.8008281904610115
+            productId: productId
+            name: name
+            currency: currency
           mode: payment
+          totalAmount: 0.8008281904610115
           createdAt: 2000-01-23T04:56:07.000+00:00
           cancelUrl: cancelUrl
           deletedAt: 2000-01-23T04:56:07.000+00:00
           merchantId: merchantId
+          name: name
           customerId: customerId
           currency: currency
           id: id
@@ -9604,17 +9987,26 @@ components:
       type: object
     UpdatePaymentLinkDto:
       example:
-        amount: 0.8008281904610115
+        hostedCheckoutConfig: ""
+        totalAmount: 0.8008281904610115
         cancelUrl: cancelUrl
         metadata:
           orderId: "12345"
+        name: name
+        description: description
         active: true
         successUrl: successUrl
       properties:
+        name:
+          description: The name of the payment link
+          type: string
+        description:
+          description: A description of the payment link
+          type: string
         active:
           description: Whether the payment link is active
           type: boolean
-        amount:
+        totalAmount:
           type: number
         successUrl:
           description: The URL to redirect to on successful payment
@@ -9628,6 +10020,10 @@ components:
           example:
             orderId: "12345"
           type: object
+        hostedCheckoutConfig:
+          allOf:
+          - $ref: "#/components/schemas/HostedCheckoutConfigDto"
+          description: Configuration for the hosted checkout page
       required:
       - metadata
       type: object
@@ -9913,6 +10309,25 @@ components:
       required:
       - data
       - pagination
+      type: object
+    RetrieveMultipleProductsDto:
+      example:
+        ids:
+        - product_001
+        - product_002
+        - product_003
+      properties:
+        ids:
+          description: Max 50 IDs of the products to retrieve
+          example:
+          - product_001
+          - product_002
+          - product_003
+          items:
+            type: string
+          type: array
+      required:
+      - ids
       type: object
     UpdateProductDto:
       example:

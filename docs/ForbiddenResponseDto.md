@@ -1,6 +1,6 @@
 
 
-# ErrorResponseDto
+# ForbiddenResponseDto
 
 
 ## Properties
