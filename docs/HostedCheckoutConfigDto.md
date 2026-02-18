@@ -17,6 +17,17 @@
 |**taxRate** | **BigDecimal** | Tax rate |  [optional] |
 |**embedMode** | **Boolean** | Embed mode |  [optional] |
 |**embedOrigin** | **String** | Embed origin |  [optional] |
+|**methods** | [**List&lt;MethodsEnum&gt;**](#List&lt;MethodsEnum&gt;) | Enabled payment methods |  [optional] |
+
+
+
+## Enum: List&lt;MethodsEnum&gt;
+
+| Name | Value |
+|---- | -----|
+| CARD | &quot;card&quot; |
+| WALLET | &quot;wallet&quot; |
+| BANK | &quot;bank&quot; |
 
 
 ## Implemented Interfaces

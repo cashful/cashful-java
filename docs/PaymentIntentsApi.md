@@ -84,11 +84,11 @@ public class Example {
 
 <a id="confirmPaymentIntent"></a>
 # **confirmPaymentIntent**
-> PaymentIntentResponseDto confirmPaymentIntent(id)
+> ConfirmPaymentIntentResponseDto confirmPaymentIntent(id, confirmPaymentIntentDto)
 
 Confirm Payment Intent
 
-Confirms a payment intent that requires confirmation. This initiates the actual payment processing.
+Confirms a payment intent that requires confirmation and returns 3DS parameters for card authentication.
 
 ### Example
 ```java
@@ -111,8 +111,9 @@ public class Example {
 
     PaymentIntentsApi apiInstance = new PaymentIntentsApi(defaultClient);
     String id = "id_example"; // String | The unique identifier of the payment intent
+    ConfirmPaymentIntentDto confirmPaymentIntentDto = new ConfirmPaymentIntentDto(); // ConfirmPaymentIntentDto | 
     try {
-      PaymentIntentResponseDto result = apiInstance.confirmPaymentIntent(id);
+      ConfirmPaymentIntentResponseDto result = apiInstance.confirmPaymentIntent(id, confirmPaymentIntentDto);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling PaymentIntentsApi#confirmPaymentIntent");
@@ -130,10 +131,11 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **id** | **String**| The unique identifier of the payment intent | |
+| **confirmPaymentIntentDto** | [**ConfirmPaymentIntentDto**](ConfirmPaymentIntentDto.md)|  | |
 
 ### Return type
 
-[**PaymentIntentResponseDto**](PaymentIntentResponseDto.md)
+[**ConfirmPaymentIntentResponseDto**](ConfirmPaymentIntentResponseDto.md)
 
 ### Authorization
 
@@ -141,13 +143,13 @@ public class Example {
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Payment intent confirmed and processing |  -  |
+| **200** | Payment intent confirmed and awaiting authentication |  -  |
 | **400** | Bad Request - Invalid input |  -  |
 | **401** | Unauthorized |  -  |
 | **404** | Resource not found |  -  |
@@ -159,7 +161,7 @@ public class Example {
 
 Create Payment Intent
 
-Creates a payment intent for off-session charges. Used for subscriptions, recurring billing, or server-to-server payments with saved cards.
+Creates a payment intent for a payment attempt. Used for hosted checkout or direct integrations.
 
 ### Example
 ```java
@@ -227,7 +229,7 @@ public class Example {
 
 <a id="listPaymentIntents"></a>
 # **listPaymentIntents**
-> ListPaymentIntentsResponseDto listPaymentIntents(merchantId, limit, offset, status)
+> ListPaymentIntentsResponseDto listPaymentIntents(status, offset, limit, merchantId)
 
 List Payment Intents
 
@@ -253,12 +255,12 @@ public class Example {
     bearer.setBearerToken("BEARER TOKEN");
 
     PaymentIntentsApi apiInstance = new PaymentIntentsApi(defaultClient);
-    String merchantId = "merchantId_example"; // String | The ID of the merchant. If omitted, defaults to the authenticated merchant.
-    BigDecimal limit = new BigDecimal("50"); // BigDecimal | Maximum number of records to return
-    BigDecimal offset = new BigDecimal("0"); // BigDecimal | Number of records to skip
-    String status = "initiation"; // String | Filter by status
+    String status = "initiation"; // String | 
+    BigDecimal offset = new BigDecimal(78); // BigDecimal | 
+    BigDecimal limit = new BigDecimal(78); // BigDecimal | 
+    String merchantId = "merchantId_example"; // String | 
     try {
-      ListPaymentIntentsResponseDto result = apiInstance.listPaymentIntents(merchantId, limit, offset, status);
+      ListPaymentIntentsResponseDto result = apiInstance.listPaymentIntents(status, offset, limit, merchantId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling PaymentIntentsApi#listPaymentIntents");
@@ -275,10 +277,10 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **merchantId** | **String**| The ID of the merchant. If omitted, defaults to the authenticated merchant. | [optional] |
-| **limit** | **BigDecimal**| Maximum number of records to return | [optional] [default to 50] |
-| **offset** | **BigDecimal**| Number of records to skip | [optional] [default to 0] |
-| **status** | **String**| Filter by status | [optional] [enum: initiation, requires_payment_method, requires_confirmation, requires_action, processing, requires_capture, succeeded, failed, canceled] |
+| **status** | **String**|  | [optional] [enum: initiation, requires_payment_method, requires_confirmation, requires_action, processing, requires_capture, succeeded, failed, canceled] |
+| **offset** | **BigDecimal**|  | [optional] |
+| **limit** | **BigDecimal**|  | [optional] |
+| **merchantId** | **String**|  | [optional] |
 
 ### Return type
 

@@ -1,7 +1,7 @@
 # cashful-java-sdk
 
 Cashful API
-- API version: 0.8.0
+- API version: 0.8.4
   - Generator version: 7.17.0
 
 Developer documentation for the Cashful platform.
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.cashful</groupId>
   <artifactId>cashful-java-sdk</artifactId>
-  <version>0.8.0</version>
+  <version>0.8.4</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -57,7 +57,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.cashful:cashful-java-sdk:0.8.0"
+     implementation "com.cashful:cashful-java-sdk:0.8.4"
   }
 ```
 
@@ -71,7 +71,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/cashful-java-sdk-0.8.0.jar`
+* `target/cashful-java-sdk-0.8.4.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -273,7 +273,11 @@ Class | Method | HTTP request | Description
  - [ChangePasswordResponseDto](docs/ChangePasswordResponseDto.md)
  - [CheckSlugDto](docs/CheckSlugDto.md)
  - [CheckSlugResponseDto](docs/CheckSlugResponseDto.md)
+ - [CheckoutSessionConfirmResponseDto](docs/CheckoutSessionConfirmResponseDto.md)
  - [CheckoutSessionResponseDto](docs/CheckoutSessionResponseDto.md)
+ - [ConfirmCheckoutSessionDto](docs/ConfirmCheckoutSessionDto.md)
+ - [ConfirmPaymentIntentDto](docs/ConfirmPaymentIntentDto.md)
+ - [ConfirmPaymentIntentResponseDto](docs/ConfirmPaymentIntentResponseDto.md)
  - [ConfirmUploadDto](docs/ConfirmUploadDto.md)
  - [CreateApiKeyDto](docs/CreateApiKeyDto.md)
  - [CreateApiKeyResponseDto](docs/CreateApiKeyResponseDto.md)
@@ -297,7 +301,6 @@ Class | Method | HTTP request | Description
  - [CustomerStatsDto](docs/CustomerStatsDto.md)
  - [CustomerTransactionDto](docs/CustomerTransactionDto.md)
  - [DailyBreakdownDto](docs/DailyBreakdownDto.md)
- - [DebitReturnResponseDto](docs/DebitReturnResponseDto.md)
  - [DeleteApiKeyDto](docs/DeleteApiKeyDto.md)
  - [DeleteApiKeyResponseDto](docs/DeleteApiKeyResponseDto.md)
  - [DeleteOrganizationDto](docs/DeleteOrganizationDto.md)

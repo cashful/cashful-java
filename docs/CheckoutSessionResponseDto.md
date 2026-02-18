@@ -12,6 +12,7 @@
 |**updatedAt** | **OffsetDateTime** |  |  |
 |**deletedAt** | **OffsetDateTime** |  |  [optional] |
 |**merchantId** | **String** |  |  |
+|**paymentIntentId** | **String** |  |  [optional] |
 |**customerId** | **String** |  |  [optional] |
 |**sessionUrl** | **String** |  |  |
 |**successUrl** | **String** |  |  |

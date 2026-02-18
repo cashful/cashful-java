@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**merchantId** | **String** | The ID of the merchant whose balance is being requested. If omitted, defaults to the authenticated merchant. |  [optional] |
+|**merchantId** | **String** | The ID of the merchant. If omitted, defaults to the authenticated merchant. |  [optional] |
 |**customerId** | **String** | The unique identifier of the customer. Optional for payment intents that don&#39;t require a customer. |  [optional] |
 |**paymentMethodId** | **String** | The unique identifier of the payment method. Optional if payment method will be collected later. |  [optional] |
 |**amount** | **BigDecimal** | The amount to charge in the smallest currency unit (cents) |  |

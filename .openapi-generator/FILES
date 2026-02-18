@@ -44,9 +44,13 @@ docs/ChangePasswordDto.md
 docs/ChangePasswordResponseDto.md
 docs/CheckSlugDto.md
 docs/CheckSlugResponseDto.md
+docs/CheckoutSessionConfirmResponseDto.md
 docs/CheckoutSessionResponseDto.md
 docs/CheckoutsApi.md
 docs/ComplianceApi.md
+docs/ConfirmCheckoutSessionDto.md
+docs/ConfirmPaymentIntentDto.md
+docs/ConfirmPaymentIntentResponseDto.md
 docs/ConfirmUploadDto.md
 docs/CreateApiKeyDto.md
 docs/CreateApiKeyResponseDto.md
@@ -71,7 +75,6 @@ docs/CustomerStatsDto.md
 docs/CustomerTransactionDto.md
 docs/CustomersApi.md
 docs/DailyBreakdownDto.md
-docs/DebitReturnResponseDto.md
 docs/DeleteApiKeyDto.md
 docs/DeleteApiKeyResponseDto.md
 docs/DeleteOrganizationDto.md
@@ -316,7 +319,11 @@ src/main/java/com/cashful/model/ChangePasswordDto.java
 src/main/java/com/cashful/model/ChangePasswordResponseDto.java
 src/main/java/com/cashful/model/CheckSlugDto.java
 src/main/java/com/cashful/model/CheckSlugResponseDto.java
+src/main/java/com/cashful/model/CheckoutSessionConfirmResponseDto.java
 src/main/java/com/cashful/model/CheckoutSessionResponseDto.java
+src/main/java/com/cashful/model/ConfirmCheckoutSessionDto.java
+src/main/java/com/cashful/model/ConfirmPaymentIntentDto.java
+src/main/java/com/cashful/model/ConfirmPaymentIntentResponseDto.java
 src/main/java/com/cashful/model/ConfirmUploadDto.java
 src/main/java/com/cashful/model/CreateApiKeyDto.java
 src/main/java/com/cashful/model/CreateApiKeyResponseDto.java
@@ -340,7 +347,6 @@ src/main/java/com/cashful/model/CustomerResponseDto.java
 src/main/java/com/cashful/model/CustomerStatsDto.java
 src/main/java/com/cashful/model/CustomerTransactionDto.java
 src/main/java/com/cashful/model/DailyBreakdownDto.java
-src/main/java/com/cashful/model/DebitReturnResponseDto.java
 src/main/java/com/cashful/model/DeleteApiKeyDto.java
 src/main/java/com/cashful/model/DeleteApiKeyResponseDto.java
 src/main/java/com/cashful/model/DeleteOrganizationDto.java
@@ -546,7 +552,11 @@ src/test/java/com/cashful/model/ChangePasswordDtoTest.java
 src/test/java/com/cashful/model/ChangePasswordResponseDtoTest.java
 src/test/java/com/cashful/model/CheckSlugDtoTest.java
 src/test/java/com/cashful/model/CheckSlugResponseDtoTest.java
+src/test/java/com/cashful/model/CheckoutSessionConfirmResponseDtoTest.java
 src/test/java/com/cashful/model/CheckoutSessionResponseDtoTest.java
+src/test/java/com/cashful/model/ConfirmCheckoutSessionDtoTest.java
+src/test/java/com/cashful/model/ConfirmPaymentIntentDtoTest.java
+src/test/java/com/cashful/model/ConfirmPaymentIntentResponseDtoTest.java
 src/test/java/com/cashful/model/ConfirmUploadDtoTest.java
 src/test/java/com/cashful/model/CreateApiKeyDtoTest.java
 src/test/java/com/cashful/model/CreateApiKeyResponseDtoTest.java
@@ -570,7 +580,6 @@ src/test/java/com/cashful/model/CustomerResponseDtoTest.java
 src/test/java/com/cashful/model/CustomerStatsDtoTest.java
 src/test/java/com/cashful/model/CustomerTransactionDtoTest.java
 src/test/java/com/cashful/model/DailyBreakdownDtoTest.java
-src/test/java/com/cashful/model/DebitReturnResponseDtoTest.java
 src/test/java/com/cashful/model/DeleteApiKeyDtoTest.java
 src/test/java/com/cashful/model/DeleteApiKeyResponseDtoTest.java
 src/test/java/com/cashful/model/DeleteOrganizationDtoTest.java

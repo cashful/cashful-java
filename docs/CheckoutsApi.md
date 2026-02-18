@@ -81,7 +81,7 @@ public class Example {
 
 <a id="listCheckoutSessions"></a>
 # **listCheckoutSessions**
-> ListCheckoutSessionsResponseDto listCheckoutSessions(merchantId, limit, offset, status)
+> ListCheckoutSessionsResponseDto listCheckoutSessions(limit, offset)
 
 List Checkout Sessions
 
@@ -107,12 +107,10 @@ public class Example {
     bearer.setBearerToken("BEARER TOKEN");
 
     CheckoutsApi apiInstance = new CheckoutsApi(defaultClient);
-    String merchantId = "merchantId_example"; // String | The ID of the merchant to filter checkout sessions
-    BigDecimal limit = new BigDecimal("50"); // BigDecimal | Maximum number of records to return
-    BigDecimal offset = new BigDecimal("0"); // BigDecimal | Number of records to skip
-    String status = "status_example"; // String | The status to filter checkout sessions
+    BigDecimal limit = new BigDecimal(78); // BigDecimal | Maximum number of records to return
+    BigDecimal offset = new BigDecimal(78); // BigDecimal | Number of records to skip
     try {
-      ListCheckoutSessionsResponseDto result = apiInstance.listCheckoutSessions(merchantId, limit, offset, status);
+      ListCheckoutSessionsResponseDto result = apiInstance.listCheckoutSessions(limit, offset);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CheckoutsApi#listCheckoutSessions");
@@ -129,10 +127,8 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **merchantId** | **String**| The ID of the merchant to filter checkout sessions | |
 | **limit** | **BigDecimal**| Maximum number of records to return | [optional] |
 | **offset** | **BigDecimal**| Number of records to skip | [optional] |
-| **status** | **String**| The status to filter checkout sessions | [optional] |
 
 ### Return type
 
