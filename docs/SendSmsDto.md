@@ -10,6 +10,7 @@
 |**to** | **Object** | Recipient phone number(s) in international format |  |
 |**message** | **String** | SMS message content |  |
 |**from** | **String** | Sender name or number |  [optional] |
+|**merchantId** | **String** | Merchant ID for context and auditing |  [optional] |
 
 
 ## Implemented Interfaces

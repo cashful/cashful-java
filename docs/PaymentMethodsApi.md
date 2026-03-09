@@ -81,7 +81,7 @@ public class Example {
 
 <a id="listPaymentMethods"></a>
 # **listPaymentMethods**
-> ListPaymentMethodsResponseDto listPaymentMethods(limit, offset, merchantId, customerId)
+> ListPaymentMethodsResponseDto listPaymentMethods(limit, offset, filter, sort, order, merchantId, customerId)
 
 List Payment Methods
 
@@ -107,12 +107,15 @@ public class Example {
     bearer.setBearerToken("BEARER TOKEN");
 
     PaymentMethodsApi apiInstance = new PaymentMethodsApi(defaultClient);
-    BigDecimal limit = new BigDecimal("50"); // BigDecimal | Maximum number of records to return
-    BigDecimal offset = new BigDecimal("0"); // BigDecimal | Number of records to skip
-    String merchantId = "merchantId_example"; // String | The unique identifier of the merchant. If not provided, defaults to the authenticated user's active organization.
-    String customerId = "customerId_example"; // String | The unique identifier of the customer
+    BigDecimal limit = new BigDecimal("50"); // BigDecimal | Maximum number of items to return
+    BigDecimal offset = new BigDecimal("0"); // BigDecimal | Number of items to skip
+    String filter = "{\"ids\":[\"prod_123\",\"prod_456\"]}"; // String | JSON string used for dynamic filtering
+    String sort = "createdAt"; // String | Field name to sort by
+    String order = "DESC"; // String | Sort direction
+    String merchantId = "merchantId_example"; // String | The ID of the merchant. If omitted, defaults to the authenticated merchant.
+    String customerId = "customerId_example"; // String | Customer ID to filter by
     try {
-      ListPaymentMethodsResponseDto result = apiInstance.listPaymentMethods(limit, offset, merchantId, customerId);
+      ListPaymentMethodsResponseDto result = apiInstance.listPaymentMethods(limit, offset, filter, sort, order, merchantId, customerId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling PaymentMethodsApi#listPaymentMethods");
@@ -129,10 +132,13 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **limit** | **BigDecimal**| Maximum number of records to return | [optional] |
-| **offset** | **BigDecimal**| Number of records to skip | [optional] |
-| **merchantId** | **String**| The unique identifier of the merchant. If not provided, defaults to the authenticated user&#39;s active organization. | [optional] |
-| **customerId** | **String**| The unique identifier of the customer | [optional] |
+| **limit** | **BigDecimal**| Maximum number of items to return | [optional] |
+| **offset** | **BigDecimal**| Number of items to skip | [optional] |
+| **filter** | **String**| JSON string used for dynamic filtering | [optional] |
+| **sort** | **String**| Field name to sort by | [optional] |
+| **order** | **String**| Sort direction | [optional] |
+| **merchantId** | **String**| The ID of the merchant. If omitted, defaults to the authenticated merchant. | [optional] |
+| **customerId** | **String**| Customer ID to filter by | [optional] |
 
 ### Return type
 

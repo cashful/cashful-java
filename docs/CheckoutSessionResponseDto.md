@@ -15,8 +15,8 @@
 |**paymentIntentId** | **String** |  |  [optional] |
 |**customerId** | **String** |  |  [optional] |
 |**sessionUrl** | **String** |  |  |
-|**successUrl** | **String** |  |  |
-|**cancelUrl** | **String** |  |  |
+|**successUrl** | **String** |  |  [optional] |
+|**cancelUrl** | **String** |  |  [optional] |
 |**lineItems** | [**List&lt;LineItemDto&gt;**](LineItemDto.md) |  |  [optional] |
 |**totalAmount** | **BigDecimal** |  |  [optional] |
 |**currency** | **String** |  |  |

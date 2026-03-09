@@ -7,7 +7,6 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**organizationId** | **String** |  |  |
 |**companyRegistrationName** | **String** |  |  [optional] |
 |**companyRegistrationNumber** | **String** |  |  [optional] |
 |**companyTradingName** | **String** |  |  [optional] |
@@ -44,9 +43,6 @@
 |**termsAccepted** | **Boolean** |  |  [optional] |
 |**acceptedAt** | **OffsetDateTime** |  |  [optional] |
 |**currentStep** | [**CurrentStepEnum**](#CurrentStepEnum) |  |  [optional] |
-|**status** | [**StatusEnum**](#StatusEnum) |  |  [optional] |
-|**isCompleted** | **Boolean** |  |  [optional] |
-|**completionScore** | **BigDecimal** |  |  [optional] |
 
 
 
@@ -60,16 +56,6 @@
 | BANKING_DETAILS | &quot;banking_details&quot; |
 | UPLOAD_DOCUMENTS | &quot;upload_documents&quot; |
 | SIGN_AGREEMENT | &quot;sign_agreement&quot; |
-
-
-
-## Enum: StatusEnum
-
-| Name | Value |
-|---- | -----|
-| PENDING | &quot;pending&quot; |
-| VERIFIED | &quot;verified&quot; |
-| REJECTED | &quot;rejected&quot; |
 
 
 ## Implemented Interfaces

@@ -9,15 +9,8 @@
 |------------ | ------------- | ------------- | -------------|
 |**user** | [**SessionUserDto**](SessionUserDto.md) | User object |  |
 |**token** | **String** | Session token |  |
-|**redirect** | [**RedirectEnum**](#RedirectEnum) | Whether to redirect |  |
+|**redirect** | **Boolean** | Whether to redirect |  |
 |**url** | **String** | Redirect URL |  [optional] |
-
-
-
-## Enum: RedirectEnum
-
-| Name | Value |
-|---- | -----|
 
 
 ## Implemented Interfaces

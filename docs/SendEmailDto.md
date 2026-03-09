@@ -16,6 +16,7 @@
 |**from** | **String** | Sender email address |  [optional] |
 |**cc** | **Object** | CC email address(es) |  [optional] |
 |**bcc** | **Object** | BCC email address(es) |  [optional] |
+|**merchantId** | **String** | Merchant ID for context and auditing |  [optional] |
 
 
 ## Implemented Interfaces

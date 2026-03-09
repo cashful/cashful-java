@@ -151,7 +151,7 @@ public class Example {
 
 <a id="listWebhookEndpoints"></a>
 # **listWebhookEndpoints**
-> ListWebhookEndpointsResponseDto listWebhookEndpoints(merchantId, limit, offset)
+> ListWebhookEndpointsResponseDto listWebhookEndpoints(merchantId, limit, offset, filter, sort, order)
 
 List Webhook Endpoints
 
@@ -180,8 +180,11 @@ public class Example {
     String merchantId = "merchantId_example"; // String | The ID of the merchant whose webhooks are being requested. If omitted, defaults to the authenticated merchant.
     BigDecimal limit = new BigDecimal(78); // BigDecimal | Maximum number of records to return
     BigDecimal offset = new BigDecimal(78); // BigDecimal | Number of records to skip
+    String filter = "filter_example"; // String | JSON string used for dynamic filtering
+    String sort = "sort_example"; // String | Field name to sort by
+    String order = "order_example"; // String | Sort direction (ASC or DESC)
     try {
-      ListWebhookEndpointsResponseDto result = apiInstance.listWebhookEndpoints(merchantId, limit, offset);
+      ListWebhookEndpointsResponseDto result = apiInstance.listWebhookEndpoints(merchantId, limit, offset, filter, sort, order);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WebhooksApi#listWebhookEndpoints");
@@ -201,6 +204,9 @@ public class Example {
 | **merchantId** | **String**| The ID of the merchant whose webhooks are being requested. If omitted, defaults to the authenticated merchant. | [optional] |
 | **limit** | **BigDecimal**| Maximum number of records to return | [optional] |
 | **offset** | **BigDecimal**| Number of records to skip | [optional] |
+| **filter** | **String**| JSON string used for dynamic filtering | [optional] |
+| **sort** | **String**| Field name to sort by | [optional] |
+| **order** | **String**| Sort direction (ASC or DESC) | [optional] |
 
 ### Return type
 

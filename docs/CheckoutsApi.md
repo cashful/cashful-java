@@ -81,7 +81,7 @@ public class Example {
 
 <a id="listCheckoutSessions"></a>
 # **listCheckoutSessions**
-> ListCheckoutSessionsResponseDto listCheckoutSessions(limit, offset)
+> ListCheckoutSessionsResponseDto listCheckoutSessions(merchantId, limit, offset, filter, sort, order, status)
 
 List Checkout Sessions
 
@@ -107,10 +107,15 @@ public class Example {
     bearer.setBearerToken("BEARER TOKEN");
 
     CheckoutsApi apiInstance = new CheckoutsApi(defaultClient);
-    BigDecimal limit = new BigDecimal(78); // BigDecimal | Maximum number of records to return
-    BigDecimal offset = new BigDecimal(78); // BigDecimal | Number of records to skip
+    String merchantId = "merchantId_example"; // String | The ID of the merchant to filter checkout sessions
+    BigDecimal limit = new BigDecimal("50"); // BigDecimal | Maximum number of items to return
+    BigDecimal offset = new BigDecimal("0"); // BigDecimal | Number of items to skip
+    String filter = "{\"ids\":[\"prod_123\",\"prod_456\"]}"; // String | JSON string used for dynamic filtering
+    String sort = "createdAt"; // String | Field name to sort by
+    String order = "DESC"; // String | Sort direction
+    String status = "status_example"; // String | The status to filter checkout sessions
     try {
-      ListCheckoutSessionsResponseDto result = apiInstance.listCheckoutSessions(limit, offset);
+      ListCheckoutSessionsResponseDto result = apiInstance.listCheckoutSessions(merchantId, limit, offset, filter, sort, order, status);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CheckoutsApi#listCheckoutSessions");
@@ -127,8 +132,13 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **limit** | **BigDecimal**| Maximum number of records to return | [optional] |
-| **offset** | **BigDecimal**| Number of records to skip | [optional] |
+| **merchantId** | **String**| The ID of the merchant to filter checkout sessions | |
+| **limit** | **BigDecimal**| Maximum number of items to return | [optional] |
+| **offset** | **BigDecimal**| Number of items to skip | [optional] |
+| **filter** | **String**| JSON string used for dynamic filtering | [optional] |
+| **sort** | **String**| Field name to sort by | [optional] |
+| **order** | **String**| Sort direction | [optional] |
+| **status** | **String**| The status to filter checkout sessions | [optional] |
 
 ### Return type
 
@@ -148,8 +158,6 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | Successfully retrieved checkout sessions |  -  |
 | **400** | Bad Request - Invalid input |  -  |
-| **401** | Unauthorized |  -  |
-| **404** | Resource not found |  -  |
 | **500** | Internal server error |  -  |
 
 <a id="retrieveCheckoutSession"></a>

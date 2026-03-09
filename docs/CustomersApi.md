@@ -5,12 +5,14 @@ All URIs are relative to *https://api.cashful.africa*
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
 | [**createCustomer**](CustomersApi.md#createCustomer) | **POST** /api/canary/customers | Create Customer |
+| [**deleteCustomersBulk**](CustomersApi.md#deleteCustomersBulk) | **DELETE** /api/canary/customers/bulk | Bulk Delete Customers |
 | [**getCustomerBalance**](CustomersApi.md#getCustomerBalance) | **GET** /api/canary/customers/{id}/balance | Get Customer&#39;s Cash Balance |
 | [**listCustomerPaymentMethods**](CustomersApi.md#listCustomerPaymentMethods) | **GET** /api/canary/customers/{id}/payment-methods | List Customer&#39;s Payment Methods |
 | [**listCustomerTransactions**](CustomersApi.md#listCustomerTransactions) | **GET** /api/canary/customers/{id}/transactions | List Customer&#39;s Cash Transactions |
 | [**listCustomers**](CustomersApi.md#listCustomers) | **GET** /api/canary/customers | List Customers |
 | [**retrieveCustomer**](CustomersApi.md#retrieveCustomer) | **GET** /api/canary/customers/{id} | Retrieve Customer |
 | [**updateCustomer**](CustomersApi.md#updateCustomer) | **PATCH** /api/canary/customers/{id} | Update Customer |
+| [**updateCustomersBulk**](CustomersApi.md#updateCustomersBulk) | **PATCH** /api/canary/customers/bulk | Bulk Update Customers |
 
 
 <a id="createCustomer"></a>
@@ -82,6 +84,77 @@ public class Example {
 | **400** | Bad Request - Invalid input |  -  |
 | **401** | Unauthorized |  -  |
 | **409** | Customer with this email already exists |  -  |
+| **500** | Internal server error |  -  |
+
+<a id="deleteCustomersBulk"></a>
+# **deleteCustomersBulk**
+> Object deleteCustomersBulk(bulkIdsDto)
+
+Bulk Delete Customers
+
+Deletes multiple customers by ID.
+
+### Example
+```java
+// Import classes:
+import com.cashful.ApiClient;
+import com.cashful.ApiException;
+import com.cashful.Configuration;
+import com.cashful.auth.*;
+import com.cashful.models.*;
+import com.cashful.api.CustomersApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.cashful.africa");
+    
+    // Configure HTTP bearer authorization: bearer
+    HttpBearerAuth bearer = (HttpBearerAuth) defaultClient.getAuthentication("bearer");
+    bearer.setBearerToken("BEARER TOKEN");
+
+    CustomersApi apiInstance = new CustomersApi(defaultClient);
+    BulkIdsDto bulkIdsDto = new BulkIdsDto(); // BulkIdsDto | 
+    try {
+      Object result = apiInstance.deleteCustomersBulk(bulkIdsDto);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling CustomersApi#deleteCustomersBulk");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **bulkIdsDto** | [**BulkIdsDto**](BulkIdsDto.md)|  | |
+
+### Return type
+
+**Object**
+
+### Authorization
+
+[bearer](../README.md#bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Customers deleted successfully |  -  |
+| **400** | Bad Request - Invalid input |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | Resource not found |  -  |
 | **500** | Internal server error |  -  |
 
 <a id="getCustomerBalance"></a>
@@ -304,7 +377,7 @@ public class Example {
 
 <a id="listCustomers"></a>
 # **listCustomers**
-> ListCustomersResponseDto listCustomers(merchantId, limit, offset, email, search)
+> ListCustomersResponseDto listCustomers(merchantId, limit, offset, filter, sort, order, email)
 
 List Customers
 
@@ -333,10 +406,12 @@ public class Example {
     String merchantId = "merchantId_example"; // String | The ID of the merchant whose balance is being requested. If omitted, defaults to the authenticated merchant.
     BigDecimal limit = new BigDecimal(78); // BigDecimal | Maximum number of records to return
     BigDecimal offset = new BigDecimal(78); // BigDecimal | Number of records to skip
+    String filter = "filter_example"; // String | JSON string used for dynamic filtering
+    String sort = "id"; // String | 
+    String order = "DESC"; // String | 
     String email = "email_example"; // String | Filter by email address
-    String search = "search_example"; // String | Search across customer fields
     try {
-      ListCustomersResponseDto result = apiInstance.listCustomers(merchantId, limit, offset, email, search);
+      ListCustomersResponseDto result = apiInstance.listCustomers(merchantId, limit, offset, filter, sort, order, email);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CustomersApi#listCustomers");
@@ -356,8 +431,10 @@ public class Example {
 | **merchantId** | **String**| The ID of the merchant whose balance is being requested. If omitted, defaults to the authenticated merchant. | [optional] |
 | **limit** | **BigDecimal**| Maximum number of records to return | [optional] |
 | **offset** | **BigDecimal**| Number of records to skip | [optional] |
+| **filter** | **String**| JSON string used for dynamic filtering | [optional] |
+| **sort** | **String**|  | [optional] [enum: id, name, email, phoneNumber, merchantId, createdAt, updatedAt] |
+| **order** | **String**|  | [optional] |
 | **email** | **String**| Filter by email address | [optional] |
-| **search** | **String**| Search across customer fields | [optional] |
 
 ### Return type
 
@@ -523,5 +600,76 @@ public class Example {
 | **401** | Unauthorized |  -  |
 | **404** | Resource not found |  -  |
 | **409** | Email already in use by another customer |  -  |
+| **500** | Internal server error |  -  |
+
+<a id="updateCustomersBulk"></a>
+# **updateCustomersBulk**
+> Object updateCustomersBulk(bulkUpdateCustomersInputDto)
+
+Bulk Update Customers
+
+Updates multiple customers using a shared patch.
+
+### Example
+```java
+// Import classes:
+import com.cashful.ApiClient;
+import com.cashful.ApiException;
+import com.cashful.Configuration;
+import com.cashful.auth.*;
+import com.cashful.models.*;
+import com.cashful.api.CustomersApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.cashful.africa");
+    
+    // Configure HTTP bearer authorization: bearer
+    HttpBearerAuth bearer = (HttpBearerAuth) defaultClient.getAuthentication("bearer");
+    bearer.setBearerToken("BEARER TOKEN");
+
+    CustomersApi apiInstance = new CustomersApi(defaultClient);
+    BulkUpdateCustomersInputDto bulkUpdateCustomersInputDto = new BulkUpdateCustomersInputDto(); // BulkUpdateCustomersInputDto | 
+    try {
+      Object result = apiInstance.updateCustomersBulk(bulkUpdateCustomersInputDto);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling CustomersApi#updateCustomersBulk");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **bulkUpdateCustomersInputDto** | [**BulkUpdateCustomersInputDto**](BulkUpdateCustomersInputDto.md)|  | |
+
+### Return type
+
+**Object**
+
+### Authorization
+
+[bearer](../README.md#bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Customers updated successfully |  -  |
+| **400** | Bad Request - Invalid input |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | Resource not found |  -  |
 | **500** | Internal server error |  -  |
 

@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**users** | **List&lt;Object&gt;** | List of users |  |
+|**users** | [**List&lt;SessionUserDto&gt;**](SessionUserDto.md) | List of users |  |
 
 
 ## Implemented Interfaces

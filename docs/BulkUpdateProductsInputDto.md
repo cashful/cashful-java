@@ -1,13 +1,14 @@
 
 
-# RetrieveMultipleProductsDto
+# BulkUpdateProductsInputDto
 
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**ids** | **List&lt;String&gt;** | Max 50 IDs of the products to retrieve |  |
+|**ids** | **List&lt;String&gt;** | List of IDs to target |  |
+|**data** | **Object** | Raw Prisma update payload |  |
 
 
 ## Implemented Interfaces

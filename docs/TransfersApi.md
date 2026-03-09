@@ -82,7 +82,7 @@ public class Example {
 
 <a id="listTransfers"></a>
 # **listTransfers**
-> ListTransfersResponseDto listTransfers(limit, offset, merchantId)
+> ListTransfersResponseDto listTransfers(limit, offset, filter, sort, order, merchantId)
 
 List Transfers
 
@@ -110,9 +110,12 @@ public class Example {
     TransfersApi apiInstance = new TransfersApi(defaultClient);
     BigDecimal limit = new BigDecimal("50"); // BigDecimal | Maximum number of items to return
     BigDecimal offset = new BigDecimal("0"); // BigDecimal | Number of items to skip
+    String filter = "{\"ids\":[\"prod_123\",\"prod_456\"]}"; // String | JSON string used for dynamic filtering
+    String sort = "createdAt"; // String | Field name to sort by
+    String order = "DESC"; // String | Sort direction
     String merchantId = "merchantId_example"; // String | Filter by merchant ID. If omitted, defaults to the authenticated merchant.
     try {
-      ListTransfersResponseDto result = apiInstance.listTransfers(limit, offset, merchantId);
+      ListTransfersResponseDto result = apiInstance.listTransfers(limit, offset, filter, sort, order, merchantId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TransfersApi#listTransfers");
@@ -131,6 +134,9 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **limit** | **BigDecimal**| Maximum number of items to return | [optional] |
 | **offset** | **BigDecimal**| Number of items to skip | [optional] |
+| **filter** | **String**| JSON string used for dynamic filtering | [optional] |
+| **sort** | **String**| Field name to sort by | [optional] |
+| **order** | **String**| Sort direction | [optional] |
 | **merchantId** | **String**| Filter by merchant ID. If omitted, defaults to the authenticated merchant. | [optional] |
 
 ### Return type

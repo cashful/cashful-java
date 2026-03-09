@@ -82,7 +82,7 @@ public class Example {
 
 <a id="listPaymentLinks"></a>
 # **listPaymentLinks**
-> ListPaymentLinksResponseDto listPaymentLinks(merchantId, limit, offset, active)
+> ListPaymentLinksResponseDto listPaymentLinks(limit, offset, filter, sort, order, merchantId, active)
 
 List Payment Links
 
@@ -108,12 +108,15 @@ public class Example {
     bearer.setBearerToken("BEARER TOKEN");
 
     PaymentLinksApi apiInstance = new PaymentLinksApi(defaultClient);
+    BigDecimal limit = new BigDecimal("50"); // BigDecimal | Maximum number of items to return
+    BigDecimal offset = new BigDecimal("0"); // BigDecimal | Number of items to skip
+    String filter = "{\"ids\":[\"prod_123\",\"prod_456\"]}"; // String | JSON string used for dynamic filtering
+    String sort = "createdAt"; // String | Field name to sort by
+    String order = "DESC"; // String | Sort direction
     String merchantId = "merchantId_example"; // String | The ID of the merchant whose payment links are being requested. If omitted, defaults to the authenticated merchant.
-    BigDecimal limit = new BigDecimal(78); // BigDecimal | Maximum number of records to return
-    BigDecimal offset = new BigDecimal(78); // BigDecimal | Number of records to skip
     Boolean active = true; // Boolean | Filter by active status
     try {
-      ListPaymentLinksResponseDto result = apiInstance.listPaymentLinks(merchantId, limit, offset, active);
+      ListPaymentLinksResponseDto result = apiInstance.listPaymentLinks(limit, offset, filter, sort, order, merchantId, active);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling PaymentLinksApi#listPaymentLinks");
@@ -130,9 +133,12 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
+| **limit** | **BigDecimal**| Maximum number of items to return | [optional] |
+| **offset** | **BigDecimal**| Number of items to skip | [optional] |
+| **filter** | **String**| JSON string used for dynamic filtering | [optional] |
+| **sort** | **String**| Field name to sort by | [optional] |
+| **order** | **String**| Sort direction | [optional] |
 | **merchantId** | **String**| The ID of the merchant whose payment links are being requested. If omitted, defaults to the authenticated merchant. | [optional] |
-| **limit** | **BigDecimal**| Maximum number of records to return | [optional] |
-| **offset** | **BigDecimal**| Number of records to skip | [optional] |
 | **active** | **Boolean**| Filter by active status | [optional] |
 
 ### Return type

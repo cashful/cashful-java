@@ -1,7 +1,7 @@
 # cashful-java-sdk
 
 Cashful API
-- API version: 0.8.4
+- API version: 0.9.0
   - Generator version: 7.17.0
 
 Developer documentation for the Cashful platform.
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.cashful</groupId>
   <artifactId>cashful-java-sdk</artifactId>
-  <version>0.8.4</version>
+  <version>0.9.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -57,7 +57,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.cashful:cashful-java-sdk:0.8.4"
+     implementation "com.cashful:cashful-java-sdk:0.9.0"
   }
 ```
 
@@ -71,7 +71,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/cashful-java-sdk-0.8.4.jar`
+* `target/cashful-java-sdk-0.9.0.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -188,15 +188,19 @@ Class | Method | HTTP request | Description
 *CheckoutsApi* | [**listCheckoutSessions**](docs/CheckoutsApi.md#listCheckoutSessions) | **GET** /api/canary/checkout/sessions | List Checkout Sessions
 *CheckoutsApi* | [**retrieveCheckoutSession**](docs/CheckoutsApi.md#retrieveCheckoutSession) | **GET** /api/canary/checkout/sessions/{id} | Retrieve Checkout Session
 *ComplianceApi* | [**createCompliance**](docs/ComplianceApi.md#createCompliance) | **POST** /api/canary/compliance | Create Compliance info
-*ComplianceApi* | [**getCompliance**](docs/ComplianceApi.md#getCompliance) | **GET** /api/canary/compliance | Get Compliance info for organization
+*ComplianceApi* | [**listCompliance**](docs/ComplianceApi.md#listCompliance) | **GET** /api/canary/compliance | List Compliance info for organization
 *ComplianceApi* | [**updateCompliance**](docs/ComplianceApi.md#updateCompliance) | **PATCH** /api/canary/compliance/{id} | Update Compliance info
 *CustomersApi* | [**createCustomer**](docs/CustomersApi.md#createCustomer) | **POST** /api/canary/customers | Create Customer
+*CustomersApi* | [**deleteCustomersBulk**](docs/CustomersApi.md#deleteCustomersBulk) | **DELETE** /api/canary/customers/bulk | Bulk Delete Customers
 *CustomersApi* | [**getCustomerBalance**](docs/CustomersApi.md#getCustomerBalance) | **GET** /api/canary/customers/{id}/balance | Get Customer&#39;s Cash Balance
 *CustomersApi* | [**listCustomerPaymentMethods**](docs/CustomersApi.md#listCustomerPaymentMethods) | **GET** /api/canary/customers/{id}/payment-methods | List Customer&#39;s Payment Methods
 *CustomersApi* | [**listCustomerTransactions**](docs/CustomersApi.md#listCustomerTransactions) | **GET** /api/canary/customers/{id}/transactions | List Customer&#39;s Cash Transactions
 *CustomersApi* | [**listCustomers**](docs/CustomersApi.md#listCustomers) | **GET** /api/canary/customers | List Customers
 *CustomersApi* | [**retrieveCustomer**](docs/CustomersApi.md#retrieveCustomer) | **GET** /api/canary/customers/{id} | Retrieve Customer
 *CustomersApi* | [**updateCustomer**](docs/CustomersApi.md#updateCustomer) | **PATCH** /api/canary/customers/{id} | Update Customer
+*CustomersApi* | [**updateCustomersBulk**](docs/CustomersApi.md#updateCustomersBulk) | **PATCH** /api/canary/customers/bulk | Bulk Update Customers
+*EventsApi* | [**createEvent**](docs/EventsApi.md#createEvent) | **POST** /api/canary/events | Create Event
+*EventsApi* | [**listEventTypes**](docs/EventsApi.md#listEventTypes) | **GET** /api/canary/events/types | List Event Types
 *EventsApi* | [**listEvents**](docs/EventsApi.md#listEvents) | **GET** /api/canary/events | List Events
 *HealthApi* | [**checkHealth**](docs/HealthApi.md#checkHealth) | **GET** /api/canary/health | Health check endpoint
 *NotificationsApi* | [**sendEmail**](docs/NotificationsApi.md#sendEmail) | **POST** /api/canary/notifications/email | Send an email notification
@@ -218,10 +222,12 @@ Class | Method | HTTP request | Description
 *PayoutsApi* | [**createPayout**](docs/PayoutsApi.md#createPayout) | **POST** /api/canary/payouts | Create Payout
 *PayoutsApi* | [**listPayouts**](docs/PayoutsApi.md#listPayouts) | **GET** /api/canary/payouts | List Payouts
 *ProductsApi* | [**createProduct**](docs/ProductsApi.md#createProduct) | **POST** /api/canary/products | Create Product
+*ProductsApi* | [**deleteProduct**](docs/ProductsApi.md#deleteProduct) | **DELETE** /api/canary/products/{id} | Delete Product
+*ProductsApi* | [**deleteProductsBulk**](docs/ProductsApi.md#deleteProductsBulk) | **DELETE** /api/canary/products/bulk | Bulk Delete Products
 *ProductsApi* | [**listProducts**](docs/ProductsApi.md#listProducts) | **GET** /api/canary/products | List Products
-*ProductsApi* | [**retrieveMultipleProducts**](docs/ProductsApi.md#retrieveMultipleProducts) | **POST** /api/canary/products/multiple | Retrieve Multiple Products by ID
 *ProductsApi* | [**retrieveProduct**](docs/ProductsApi.md#retrieveProduct) | **GET** /api/canary/products/{id} | Retrieve Product
 *ProductsApi* | [**updateProduct**](docs/ProductsApi.md#updateProduct) | **PATCH** /api/canary/products/{id} | Update Product
+*ProductsApi* | [**updateProductsBulk**](docs/ProductsApi.md#updateProductsBulk) | **PATCH** /api/canary/products/bulk | Bulk Update Products
 *PurchasesApi* | [**createPurchase**](docs/PurchasesApi.md#createPurchase) | **POST** /api/canary/purchases | Buy with Cash Balance
 *StorageApi* | [**confirmUpload**](docs/StorageApi.md#confirmUpload) | **POST** /api/canary/storage/confirm-upload | Confirm that a file upload was completed
 *StorageApi* | [**deleteFile**](docs/StorageApi.md#deleteFile) | **DELETE** /api/canary/storage/{id} | Delete a file
@@ -265,6 +271,9 @@ Class | Method | HTTP request | Description
  - [BanUserDto](docs/BanUserDto.md)
  - [BanUserResponseDto](docs/BanUserResponseDto.md)
  - [BaseDto](docs/BaseDto.md)
+ - [BulkIdsDto](docs/BulkIdsDto.md)
+ - [BulkUpdateCustomersInputDto](docs/BulkUpdateCustomersInputDto.md)
+ - [BulkUpdateProductsInputDto](docs/BulkUpdateProductsInputDto.md)
  - [CancelInvitationDto](docs/CancelInvitationDto.md)
  - [CancelInvitationResponseDto](docs/CancelInvitationResponseDto.md)
  - [ChangeEmailDto](docs/ChangeEmailDto.md)
@@ -284,6 +293,8 @@ Class | Method | HTTP request | Description
  - [CreateBalanceDto](docs/CreateBalanceDto.md)
  - [CreateCheckoutSessionDto](docs/CreateCheckoutSessionDto.md)
  - [CreateCustomerDto](docs/CreateCustomerDto.md)
+ - [CreateEventDto](docs/CreateEventDto.md)
+ - [CreateEventTypeDto](docs/CreateEventTypeDto.md)
  - [CreateOrganizationComplianceDto](docs/CreateOrganizationComplianceDto.md)
  - [CreateOrganizationDto](docs/CreateOrganizationDto.md)
  - [CreateOrganizationResponseDto](docs/CreateOrganizationResponseDto.md)
@@ -308,6 +319,7 @@ Class | Method | HTTP request | Description
  - [DeleteUserDto](docs/DeleteUserDto.md)
  - [DeleteUserResponseDto](docs/DeleteUserResponseDto.md)
  - [EventResponseDto](docs/EventResponseDto.md)
+ - [EventTypeResponseDto](docs/EventTypeResponseDto.md)
  - [EvervaultEncryptedCardDto](docs/EvervaultEncryptedCardDto.md)
  - [FileDto](docs/FileDto.md)
  - [ForbiddenResponseDto](docs/ForbiddenResponseDto.md)
@@ -331,6 +343,7 @@ Class | Method | HTTP request | Description
  - [ImpersonateUserResponseDto](docs/ImpersonateUserResponseDto.md)
  - [InitiatePaymentDto](docs/InitiatePaymentDto.md)
  - [InitiatePaymentResponseDto](docs/InitiatePaymentResponseDto.md)
+ - [InternalAnalyticsInsightsDto](docs/InternalAnalyticsInsightsDto.md)
  - [InternalServerErrorResponseDto](docs/InternalServerErrorResponseDto.md)
  - [InvitationDto](docs/InvitationDto.md)
  - [InviteMemberDto](docs/InviteMemberDto.md)
@@ -344,17 +357,21 @@ Class | Method | HTTP request | Description
  - [LineItemDto](docs/LineItemDto.md)
  - [LinkSocialDto](docs/LinkSocialDto.md)
  - [LinkSocialResponseDto](docs/LinkSocialResponseDto.md)
+ - [LinkedAccountDto](docs/LinkedAccountDto.md)
  - [ListAccountsResponseDto](docs/ListAccountsResponseDto.md)
  - [ListApiKeysResponseDto](docs/ListApiKeysResponseDto.md)
  - [ListCheckoutSessionsResponseDto](docs/ListCheckoutSessionsResponseDto.md)
  - [ListCustomerPaymentMethodsResponseDto](docs/ListCustomerPaymentMethodsResponseDto.md)
  - [ListCustomerTransactionsResponseDto](docs/ListCustomerTransactionsResponseDto.md)
  - [ListCustomersResponseDto](docs/ListCustomersResponseDto.md)
+ - [ListEventTypesResponseDto](docs/ListEventTypesResponseDto.md)
  - [ListEventsResponseDto](docs/ListEventsResponseDto.md)
  - [ListFilesResponseDto](docs/ListFilesResponseDto.md)
  - [ListInvitationsResponseDto](docs/ListInvitationsResponseDto.md)
  - [ListMembersResponseDto](docs/ListMembersResponseDto.md)
+ - [ListMerchantBalancesResponseDto](docs/ListMerchantBalancesResponseDto.md)
  - [ListOrganizationComplianceResponseDto](docs/ListOrganizationComplianceResponseDto.md)
+ - [ListOrganizationsResponseDto](docs/ListOrganizationsResponseDto.md)
  - [ListPaymentIntentsResponseDto](docs/ListPaymentIntentsResponseDto.md)
  - [ListPaymentLinksResponseDto](docs/ListPaymentLinksResponseDto.md)
  - [ListPaymentMethodsResponseDto](docs/ListPaymentMethodsResponseDto.md)
@@ -397,7 +414,6 @@ Class | Method | HTTP request | Description
  - [ResetPasswordResponseDto](docs/ResetPasswordResponseDto.md)
  - [ResetPhonePasswordDto](docs/ResetPhonePasswordDto.md)
  - [ResetPhonePasswordResponseDto](docs/ResetPhonePasswordResponseDto.md)
- - [RetrieveMultipleProductsDto](docs/RetrieveMultipleProductsDto.md)
  - [RevokeSessionDto](docs/RevokeSessionDto.md)
  - [RevokeSessionResponseDto](docs/RevokeSessionResponseDto.md)
  - [SendEmail200Response](docs/SendEmail200Response.md)
@@ -436,9 +452,11 @@ Class | Method | HTTP request | Description
  - [UpdateCheckoutSessionDto](docs/UpdateCheckoutSessionDto.md)
  - [UpdateCheckoutSessionResponseDto](docs/UpdateCheckoutSessionResponseDto.md)
  - [UpdateCustomerDto](docs/UpdateCustomerDto.md)
+ - [UpdateFileDto](docs/UpdateFileDto.md)
  - [UpdateMemberRoleDto](docs/UpdateMemberRoleDto.md)
  - [UpdateMemberRoleResponseDto](docs/UpdateMemberRoleResponseDto.md)
  - [UpdateOrganizationComplianceDto](docs/UpdateOrganizationComplianceDto.md)
+ - [UpdateOrganizationComplianceInternalDto](docs/UpdateOrganizationComplianceInternalDto.md)
  - [UpdateOrganizationDto](docs/UpdateOrganizationDto.md)
  - [UpdateOrganizationResponseDto](docs/UpdateOrganizationResponseDto.md)
  - [UpdatePaymentLinkDto](docs/UpdatePaymentLinkDto.md)

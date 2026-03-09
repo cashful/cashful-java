@@ -5,7 +5,7 @@ All URIs are relative to *https://api.cashful.africa*
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
 | [**createCompliance**](ComplianceApi.md#createCompliance) | **POST** /api/canary/compliance | Create Compliance info |
-| [**getCompliance**](ComplianceApi.md#getCompliance) | **GET** /api/canary/compliance | Get Compliance info for organization |
+| [**listCompliance**](ComplianceApi.md#listCompliance) | **GET** /api/canary/compliance | List Compliance info for organization |
 | [**updateCompliance**](ComplianceApi.md#updateCompliance) | **PATCH** /api/canary/compliance/{id} | Update Compliance info |
 
 
@@ -77,11 +77,11 @@ public class Example {
 | **401** | Unauthorized |  -  |
 | **500** | Internal server error |  -  |
 
-<a id="getCompliance"></a>
-# **getCompliance**
-> OrganizationComplianceResponseDto getCompliance(organizationId)
+<a id="listCompliance"></a>
+# **listCompliance**
+> ListOrganizationComplianceResponseDto listCompliance(limit, offset, filter, sort, order)
 
-Get Compliance info for organization
+List Compliance info for organization
 
 ### Example
 ```java
@@ -103,12 +103,16 @@ public class Example {
     bearer.setBearerToken("BEARER TOKEN");
 
     ComplianceApi apiInstance = new ComplianceApi(defaultClient);
-    String organizationId = "organizationId_example"; // String | 
+    BigDecimal limit = new BigDecimal("50"); // BigDecimal | Maximum number of items to return
+    BigDecimal offset = new BigDecimal("0"); // BigDecimal | Number of items to skip
+    String filter = "{\"ids\":[\"prod_123\",\"prod_456\"]}"; // String | JSON string used for dynamic filtering
+    String sort = "createdAt"; // String | Field name to sort by
+    String order = "DESC"; // String | Sort direction
     try {
-      OrganizationComplianceResponseDto result = apiInstance.getCompliance(organizationId);
+      ListOrganizationComplianceResponseDto result = apiInstance.listCompliance(limit, offset, filter, sort, order);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling ComplianceApi#getCompliance");
+      System.err.println("Exception when calling ComplianceApi#listCompliance");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -122,11 +126,15 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **organizationId** | **String**|  | |
+| **limit** | **BigDecimal**| Maximum number of items to return | [optional] |
+| **offset** | **BigDecimal**| Number of items to skip | [optional] |
+| **filter** | **String**| JSON string used for dynamic filtering | [optional] |
+| **sort** | **String**| Field name to sort by | [optional] |
+| **order** | **String**| Sort direction | [optional] |
 
 ### Return type
 
-[**OrganizationComplianceResponseDto**](OrganizationComplianceResponseDto.md)
+[**ListOrganizationComplianceResponseDto**](ListOrganizationComplianceResponseDto.md)
 
 ### Authorization
 

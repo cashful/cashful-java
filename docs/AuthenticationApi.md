@@ -2744,7 +2744,7 @@ public class Example {
 
     AuthenticationApi apiInstance = new AuthenticationApi(defaultClient);
     String token = "token_example"; // String | 
-    String callbackURL = "https://example.com/reset-password"; // String | The URL to redirect user to reset their password
+    String callbackURL = "https://www.cashful.africa/reset-password"; // String | The URL to redirect user to reset their password
     try {
       ResetPasswordCallbackResponseDto result = apiInstance.resetPasswordCallback(token, callbackURL);
       System.out.println(result);
@@ -4013,7 +4013,7 @@ public class Example {
 
     AuthenticationApi apiInstance = new AuthenticationApi(defaultClient);
     String token = "verify_token_12345"; // String | The token to verify email
-    String callbackURL = "https://example.com/callback"; // String | The URL to redirect to after email verification
+    String callbackURL = "https://www.cashful.africa/callback"; // String | The URL to redirect to after email verification
     try {
       VerifyEmailResponseDto result = apiInstance.verifyEmail(token, callbackURL);
       System.out.println(result);

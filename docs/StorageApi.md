@@ -289,7 +289,7 @@ public class Example {
 
 <a id="listFiles"></a>
 # **listFiles**
-> ListFilesResponseDto listFiles(limit, offset, tag, status, relatedEntityId, relatedEntityType)
+> ListFilesResponseDto listFiles(limit, offset, filter, sort, order, tag, status, relatedEntityId, relatedEntityType)
 
 List files
 
@@ -313,14 +313,17 @@ public class Example {
     bearer.setBearerToken("BEARER TOKEN");
 
     StorageApi apiInstance = new StorageApi(defaultClient);
-    BigDecimal limit = new BigDecimal("50"); // BigDecimal | Maximum number of records to return
-    BigDecimal offset = new BigDecimal("0"); // BigDecimal | Number of records to skip
+    BigDecimal limit = new BigDecimal("50"); // BigDecimal | Maximum number of items to return
+    BigDecimal offset = new BigDecimal("0"); // BigDecimal | Number of items to skip
+    String filter = "{\"ids\":[\"prod_123\",\"prod_456\"]}"; // String | JSON string used for dynamic filtering
+    String sort = "createdAt"; // String | Field name to sort by
+    String order = "DESC"; // String | Sort direction
     String tag = "tag_example"; // String | Filter by tag
     String status = "pending"; // String | 
     String relatedEntityId = "relatedEntityId_example"; // String | 
     String relatedEntityType = "relatedEntityType_example"; // String | 
     try {
-      ListFilesResponseDto result = apiInstance.listFiles(limit, offset, tag, status, relatedEntityId, relatedEntityType);
+      ListFilesResponseDto result = apiInstance.listFiles(limit, offset, filter, sort, order, tag, status, relatedEntityId, relatedEntityType);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling StorageApi#listFiles");
@@ -337,8 +340,11 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **limit** | **BigDecimal**| Maximum number of records to return | [optional] |
-| **offset** | **BigDecimal**| Number of records to skip | [optional] |
+| **limit** | **BigDecimal**| Maximum number of items to return | [optional] |
+| **offset** | **BigDecimal**| Number of items to skip | [optional] |
+| **filter** | **String**| JSON string used for dynamic filtering | [optional] |
+| **sort** | **String**| Field name to sort by | [optional] |
+| **order** | **String**| Sort direction | [optional] |
 | **tag** | **String**| Filter by tag | [optional] |
 | **status** | **String**|  | [optional] [enum: pending, uploaded, failed, deleted] |
 | **relatedEntityId** | **String**|  | [optional] |

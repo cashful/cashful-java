@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**accounts** | **List&lt;Object&gt;** | List of linked social accounts |  |
+|**accounts** | [**List&lt;LinkedAccountDto&gt;**](LinkedAccountDto.md) | List of linked social accounts |  |
 
 
 ## Implemented Interfaces

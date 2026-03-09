@@ -1,0 +1,18 @@
+
+
+# ListMerchantBalancesResponseDto
+
+
+## Properties
+
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**data** | [**List&lt;MerchantBalanceResponseDto&gt;**](MerchantBalanceResponseDto.md) |  |  |
+|**pagination** | [**PaginationResponseDto**](PaginationResponseDto.md) |  |  |
+
+
+## Implemented Interfaces
+
+* Serializable
+
+
